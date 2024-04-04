@@ -3,6 +3,39 @@ body {
   background-color: black;
   color: white;
 }
+
+div.ui.menu {
+  margin-bottom: 0;
+}
+
+.ui.menu.fixed {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.ui.header {
+  color: white;
+}
+
+.ui.menu.fixed .item {
+  text-transform: uppercase;
+}
+
+.ui.message {
+  color: white;
+  background-color: #1b1c1d;
+  border-color: white;
+}
+
+.ui.menu:not(.vertical) > .menu {
+  margin-left: 25%;
+}
+
+body {
+  height: auto;
+}
+
 .hero.home {
   height: calc(100vh - 40px);
 }
@@ -38,36 +71,9 @@ body {
   font-size: 50px;
 }
 
-div.ui.menu {
-  margin-bottom: 0;
-}
-
-.ui.menu.fixed {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.ui.header {
-  color: white;
-}
-
-.ui.menu .item {
-  text-transform: uppercase;
-}
-
-.ui.message {
-  color: white;
-  background-color: #1b1c1d;
-  border-color: white;
-}
-
-.ui.menu:not(.vertical) > .menu {
-  margin-left: 25%;
-}
-
 body {
-  height: auto;
+  background-color: black;
+  color: white;
 }
 
 .products {
