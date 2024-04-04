@@ -16,17 +16,6 @@ export default function Home() {
       <section className="hero home">
         <h1>Mychal Wood</h1>
       </section>
-      <Grid centered inverted>
-        <Grid.Row columns={1} verticalAlign="left">
-        <Grid.Column width={8} verticalAlign="left"><Message>
-    <Message.Header>Changes to the Site</Message.Header>
-    <p>
-    This website will continue to be updated over the course of my semester, improving each time to create the ultimate portfolio.
-    </p>
-  </Message>
-  </Grid.Column>
-        
-        </Grid.Row>
       </Grid>
       <Grid centered>
       <Grid.Row columns={1}></Grid.Row>
