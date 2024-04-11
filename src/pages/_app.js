@@ -1,6 +1,6 @@
 import React from 'react'
 import 'semantic-ui-css/semantic.css'
-import styles from '../styles/globals.css'
+import "@/styles/globals.css"
 import "@/styles/styles.module.css"
 import {Menu, Icon} from 'semantic-ui-react'
 import Link from 'next/link'
