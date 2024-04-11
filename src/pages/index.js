@@ -16,6 +16,17 @@ export default function Home() {
       <section className="hero home">
         <h1>Mychal Wood</h1>
       </section>
+      <Grid centered inverted>
+        <Grid.Row columns={1} verticalAlign="left">
+        <Grid.Column width={8} verticalAlign="left"><Message>
+    <Message.Header>Changes to the Site</Message.Header>
+    <p>
+    This website will continue to be updated over the course of my semester, improving each time to create the ultimate portfolio.
+    </p>
+  </Message>
+  </Grid.Column>
+        
+        </Grid.Row>
       </Grid>
       <Grid centered>
       <Grid.Row columns={1}></Grid.Row>
@@ -46,7 +57,7 @@ export default function Home() {
         <h3>Here are the projects that I've worked on in the past.</h3>
         </Grid.Row>
       </Grid>
-      <div className="work">
+      <div class="work">
         <WorkProject src="/eventsy.png" project="eventsy" title="Eventsy Website"/>
         <WorkProject src="/mcdonalds.png" project="mcdonalds" title="McDonald's Database"/>
         <WorkProject src="/indylaserdesigns.png" project="indylaserdesigns" title="Indy Laser Designs Website"/> 
