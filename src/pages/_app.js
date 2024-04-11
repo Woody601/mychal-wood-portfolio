@@ -10,7 +10,7 @@ import Link from 'next/link'
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <Menu fixed='true' className='inverted'>
+      <Menu fixed='top' className='inverted'>
       <Menu.Item name='mychal wood' as={Link} href='/' />
       <Menu.Menu>
         <Menu.Item name='about' as={Link} href='/about' />
