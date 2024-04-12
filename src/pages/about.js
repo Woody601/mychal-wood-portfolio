@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "@/styles/styles.module.css";
 import Head from 'next/head'
-import { Image, Grid, Header} from 'semantic-ui-react';
+import { Image, Grid, GridRow, GridColumn,Header, Button, Link} from 'semantic-ui-react';
 import  "@/styles/Home.module.css"
 export default function About() {
 
@@ -15,72 +15,53 @@ export default function About() {
       <section className="hero">
         <h1>About</h1>
       </section>
-      <Grid columns='1' verticalAlign="center">
-              <Grid.Row columns={1}>
-          <Grid.Column mobile={12} tablet={10} computer={8}><Header as='h4' textAlign="left">This is about me!</Header></Grid.Column>
-        </Grid.Row>
+      
+      <Grid columns='1' verticalAlign="center">     
         <Grid.Row columns={1}>
-          <Grid.Column mobile={12} tablet={10} computer={8} verticalAlign="center">
-            <Image size="medium"src="Mychal_Wood.jpg" className={styles.portrait} />
-          </Grid.Column>
-        </Grid.Row>
-        <Grid.Row columns={1}>
-          <Grid.Column mobile={12} tablet={10} computer={8} textAlign="left">
+          <Grid.Column mobile={12} tablet={10} computer={8} textAlign="center">
           <p>
-        Hello there, my name is Mychal Wood! I am currently a Senior at IUPUI
-        pursuing the Full Stack program, where I'll be getting two Bachelor's
-        degrees when I graduate: Informatics and Media Arts and Science with a
-        specialization in Web Design and Development. I grew up and have lived
-        in Beech Grove my entire life, so I am very familiar with the
-        surrounding area. Scroll down to see some of my likes and interests!
+        I'm Mychal Wood, a Full Stack Web Developer located in the Greater Indianapolis area.
       </p>
+      <Image size="medium"src="Mychal_Wood.jpg" className={styles.portrait} />
           </Grid.Column>
         </Grid.Row>
         <Grid.Row columns={1}>
-          <Grid.Column mobile={12} tablet={10} computer={8} textAlign="left">
-          <p>
-        In my free time, I love to hang out with friends and family, watch TV,
-        play videogames, build Legos, go camping, and much more! Some of my
-        favorite video games are The Legend of Zelda, Mario Kart, Super Smash
-        Bros Ultimate, Terraria, Fortnite, Minecraft, and the list goes on and
-        on!
-      </p>
+        <h1>
+              Front End Development
+            </h1>
+            <p>
+              I am well versed in a variety of tools and software, when it comes to designing for the front end. Some of said tools and software are:
+            </p>
+            </Grid.Row>
+            <Grid.Row columns={1}>
+              <ul>
+                <li>
+              <p>NextJS</p>
+                </li>
+                <li>
+                  <p>React</p>
+                </li>
+                <li>
+                  <p>Git</p>
+                </li>
+                <li>
+                  <p>Visual Studio</p>
+                </li>
+                <li>
+                  <p>Sass</p>
+                </li>            
+                  </ul>
+            </Grid.Row>
+            <Grid.Row columns={1}>
+          <Grid.Column mobile={12} tablet={10} computer={8} textAlign="center">
+          <h1>
+        Contact Me
+      </h1>
+      <p>Want to get in touch with me? Click the button below and fill out the form!</p>
+      <Button as={Link} href='/contact' className="button">Contact</Button>
           </Grid.Column>
         </Grid.Row>
-        <Grid.Row columns={1}>
-          <Grid.Column mobile={12} tablet={10} computer={8}>
-            <Image src="SmashBros.jpg" className={styles.gamePicture} />
-          </Grid.Column>
-        </Grid.Row>
-        <Grid.Row columns={1}>
-          <Grid.Column mobile={12} tablet={10} computer={8}>
-            <Image src="Zelda.jpg" className={styles.gamePicture} />
-          </Grid.Column>
-        </Grid.Row>
-        <Grid.Row columns={1}>
-          <Grid.Column mobile={12} tablet={10} computer={8} textAlign="left">
-          <p>
-        Also in my free time, I like to mess with various electronic things.
-        From my 3D printer, to even my Raspberry Pi, there is a wide variety of
-        things I like to mess with. I even plan on building a PC in the coming
-        months to put the skills I've learned to the test, and to build one to
-        game on! Also in high school, I was part of a Vex Robotics team, where I
-        helped keep track of the engineering notebook and anything else that was
-        needed at the time.
-      </p>
-          </Grid.Column>
-        </Grid.Row>
-        <Grid.Row columns={1}>
-          <Grid.Column mobile={12} tablet={10} computer={8}><Header as='h1' textAlign="left">About This Project</Header></Grid.Column>
-        </Grid.Row>
-        <Grid.Row columns={1}>
-          <Grid.Column mobile={12} tablet={10} computer={8} textAlign="left">
-          <p>
-        This is my portfolio that I have been assigned to create in my N399 class. This project will allow me to create the ultimate portfolio, to show my sense of style, along with all of the work that I have done in the past.
-      </p>
-          </Grid.Column>
-        </Grid.Row>
-        </Grid>       
+        </Grid>
           </>
   )
 }

@@ -22,7 +22,7 @@ export default function Materials() {
         <h3>Here are the projects that I've worked on in the past.</h3>
         </Grid.Row>
       </Grid>
-      <div class="work">
+      <div className="work">
         <WorkProject src="/eventsy.png" project="eventsy" title="Eventsy Website"/>
         <WorkProject src="/mcdonalds.png" project="mcdonalds" title="McDonald's Database"/>
         <WorkProject src="/indylaserdesigns.png" project="indylaserdesigns" title="Indy Laser Designs Website"/> 
