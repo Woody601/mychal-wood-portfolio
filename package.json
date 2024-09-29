@@ -1,18 +1,22 @@
 {
-  "name": "my-app",
+  "name": "mychal-wood-portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "Start Project": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "14.1.0",
+    "next": "^14.2.13",
     "react": "^18",
     "react-dom": "^18",
     "semantic-ui-css": "^2.5.0",
     "semantic-ui-react": "^2.1.5"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.0.1"
   }
 }

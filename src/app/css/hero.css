@@ -1,0 +1,72 @@
+.hero.home {
+  height: calc(100vh - 50px);
+  margin: 0;
+}
+
+.hero {
+  height: calc(75vh - 50px);
+  width: 100%;
+  background-color: black;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.hero h1 {
+  color: white;
+  margin: 0px;
+  font-size: 50px;
+  font-family: Lato;
+  font-weight: 400;
+}
+
+.section {
+  min-height: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.section h1 {
+  padding: 15px 0 20px;
+  margin: 0 0 40px;
+}
+.section p {
+  font-family: Roboto;
+  font-weight: 400;
+  margin-bottom: 35px;
+  font-size: 24px;
+}
+
+.button {
+  padding: 15px 20px;
+  text-decoration: none;
+  font-family: Lato;
+  background-color: #fff;
+  border-radius: 8px;
+  color: #000;
+  text-transform: uppercase;
+}
