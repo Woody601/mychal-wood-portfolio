@@ -11,7 +11,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="hero">
+      <section className="hero home">
         <h2>Hello There! I'm</h2>
         <h1>Mychal Wood</h1>
         <h2>Gamer, Web Designer, and Front End Developer.</h2>

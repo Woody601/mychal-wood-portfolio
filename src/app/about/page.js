@@ -20,64 +20,52 @@ export default function About() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="hero">
-        <h1>About</h1>
+      <section>
+        <h1 className="hero">About</h1>
+        <p>
+          I'm Mychal Wood, a Full Stack Web Developer located in the Greater
+          Indianapolis area.
+        </p>
+        <Image
+          size="medium"
+          src="Mychal_Wood.jpg"
+          className={styles.portrait}
+        />
       </section>
-
-      <Grid columns="1" verticalAlign="center">
-        <Grid.Row columns={1}>
-          <Grid.Column mobile={12} tablet={10} computer={8} textAlign="center">
-            <p>
-              I'm Mychal Wood, a Full Stack Web Developer located in the Greater
-              Indianapolis area.
-            </p>
-            <Image
-              size="medium"
-              src="Mychal_Wood.jpg"
-              className={styles.portrait}
-            />
-          </Grid.Column>
-        </Grid.Row>
-        <Grid.Row columns={1}>
-          <h1>Front End Development</h1>
-          <p>
-            I am well versed in a variety of tools and software, when it comes
-            to designing for the front end. Some of said tools and software are:
-          </p>
-        </Grid.Row>
-        <Grid.Row columns={1}>
-          <ul>
-            <li>
-              <p>NextJS</p>
-            </li>
-            <li>
-              <p>React</p>
-            </li>
-            <li>
-              <p>Git</p>
-            </li>
-            <li>
-              <p>Visual Studio</p>
-            </li>
-            <li>
-              <p>Sass</p>
-            </li>
-          </ul>
-        </Grid.Row>
-        <Grid.Row columns={1}>
-          <Grid.Column mobile={12} tablet={10} computer={8} textAlign="center">
-            <h1>Contact Me</h1>
-            <p>
-              Want to get in touch with me? Click the button below and fill out
-              the form!
-            </p>
-
-            <Button className="button" href="/contact">
-              Contact
-            </Button>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
+      <section>
+        <h1>Front End Development</h1>
+        <p>
+          I am well versed in a variety of tools and software, when it comes to
+          designing for the front end. Some of said tools and software are:
+        </p>
+        <ul>
+          <li>
+            <p>NextJS</p>
+          </li>
+          <li>
+            <p>React</p>
+          </li>
+          <li>
+            <p>Git</p>
+          </li>
+          <li>
+            <p>Visual Studio</p>
+          </li>
+          <li>
+            <p>Sass</p>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h1>Contact Me</h1>
+        <p>
+          Want to get in touch with me? Click the button below and fill out the
+          form!
+        </p>
+        <Button className="button" href="/contact">
+          Contact
+        </Button>
+      </section>
     </>
   );
 }

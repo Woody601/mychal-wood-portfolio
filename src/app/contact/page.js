@@ -40,14 +40,7 @@ export default function Contact() {
 
   return (
     <>
-      <Head>
-        <title>Contact</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <section className="hero">
-        <h1>Contact</h1>
-      </section>
+      <h1 className="hero">Contact</h1>
       <form className={styles.form} onSubmit={contactFormSubmit}>
         <div className={styles.formField}>
           <label>Name:</label>

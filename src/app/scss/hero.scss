@@ -7,10 +7,14 @@
   text-transform: uppercase;
   text-align: center;
   row-gap: 20px;
+  font-size: clamp(16px, 14vw, 44px);
   h1 {
     color: white;
-    font-size: 44px;
+    font-size: clamp(16px, 14vw, 44px);
     font-family: Lato;
+  }
+  h2 {
+    font-size: 24px;
   }
   h1,
   h2 {
