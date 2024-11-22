@@ -9,13 +9,13 @@ export default function NavBar() {
   const [isToggled, setToggled] = useState(false);
 
   //If the user switches screen size and has the mobile menu open, it will close that mobile menu down.
-  if ([screenWidth] >= 960 && isToggled) {
+  if ([screenWidth] >= 769 && isToggled) {
     setToggled(!isToggled);
   }
   // Function to toggle the class
   const toggleNav = () => {
-    // This will only toggle the mobile nav if the screen size is equal to or less than 960px, which is the width the mobile navigation activates on.
-    if ([screenWidth] <= 960) {
+    // This will only toggle the mobile nav if the screen size is equal to or less than 769px, which is the width the mobile navigation activates on.
+    if ([screenWidth] <= 768) {
       setToggled(!isToggled);
     }
   };
@@ -63,12 +63,12 @@ export default function NavBar() {
         <Menu.Menu className="items">
           <Menu.Item name="about" as={Link} href="/about" onClick={toggleNav} />
           <Menu.Item name="work" as={Link} href="/work" onClick={toggleNav} />
-          <Menu.Item
+          {/* <Menu.Item
             name="resume"
             as={Link}
             href="/resune"
             onClick={toggleNav}
-          />
+          /> */}
           <Menu.Item
             name="contact"
             as={Link}

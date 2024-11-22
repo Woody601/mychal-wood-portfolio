@@ -1,0 +1,19 @@
+.container {
+  max-width: 860px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.sectiontitle {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #0078d4;
+}
+
+.project {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px; /* Space between grid items */
+}

@@ -1,7 +1,7 @@
-"use client"
-import React from "react"
-import styles from "../css/styles.module.css"
-import Head from "next/head"
+"use client";
+import React from "react";
+import styles from "../css/styles.module.css";
+import Head from "next/head";
 import {
   Image,
   Grid,
@@ -9,9 +9,9 @@ import {
   GridColumn,
   Header,
   Button,
-  Link,
-} from "semantic-ui-react"
-import "../css/Home.module.css"
+} from "semantic-ui-react";
+import "../css/Home.module.css";
+import Link from "next/link";
 export default function About() {
   return (
     <>
@@ -71,12 +71,13 @@ export default function About() {
               Want to get in touch with me? Click the button below and fill out
               the form!
             </p>
-            <Button as={Link} href="/contact" className="button">
+
+            <Button className="button" href="/contact">
               Contact
             </Button>
           </Grid.Column>
         </Grid.Row>
       </Grid>
     </>
-  )
+  );
 }

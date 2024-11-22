@@ -1,50 +1,47 @@
-.productSection {
-  padding: 20px;
-  text-align: center;
+.projectitem {
+  -ms-flex-preferred-size: 350px;
+      flex-basis: 350px;
+  background-color: #222;
+  padding: 15px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+          box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease; /* Smooth transform effect on hover */
+  text-decoration: none;
 }
-
-.workProject {
-  margin: 20px;
-  padding: 10px;
-  background-color: #080808;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  max-width: 450px;
-  text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.projectitem:hover {
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
-
-.workProject img {
-  max-width: 100%;
+.projectitem img {
+  width: 100%;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+          box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+  aspect-ratio: 3.5/2;
+  background-color: #e50001;
 }
-
-.workProject h3 {
-  margin-top: 10px;
+.projectitem h3 {
   font-size: 1.5rem;
+  margin-top: 15px;
+  color: #0078d4;
 }
-
-.workProject p {
-  margin: 10px 0;
+.projectitem p {
+  font-size: 1rem;
+  color: #bbb;
 }
 
 .form {
-  padding: 8px;
   margin: auto;
   max-width: 400px;
 }
-
-.formField {
+.form .formField {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -52,32 +49,33 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding-bottom: 16px;
-  max-width: 400px;
+  row-gap: 16px;
   font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
-
-.formField label {
-  font-size: 16px;
+.form .formField label {
+  font-size: 1rem;
   font-weight: bold;
-  margin-bottom: 16px;
 }
-
-.formField input {
-  font-size: 16px;
+.form .formField label,
+.form .formField input,
+.form .formField textarea {
+  font-size: 1rem;
+}
+.form .formField input,
+.form .formField textarea {
   padding: 12px;
-  margin-bottom: 16px;
   font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
-
-.formField textarea {
-  font-size: 16px;
-  padding: 12px;
+.form .formField input:focus,
+.form .formField textarea:focus {
+  outline: 2px solid #0078d4;
+  border-radius: 2px;
+}
+.form .formField textarea {
   max-width: 376px;
   height: 105px;
   min-height: 21px;
   max-height: 210px;
-  font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
   resize: vertical;
 }
 
@@ -115,7 +113,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  max-width: 1450px;
+  max-width: 1024px;
   margin: auto;
 }
 

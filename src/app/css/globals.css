@@ -53,6 +53,9 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-weight: 600;
   outline: 0;
   cursor: pointer;
@@ -61,13 +64,12 @@
   -webkit-transition: 0.2s ease;
   transition: 0.2s ease;
 }
-
 .button:active {
   outline: none;
 }
-
 .button:hover {
-  background-color: #777777;
+  background-color: #0078d4;
+  color: white;
 }
 
 * {
@@ -81,7 +83,7 @@ html,
 body {
   /* height: 100%; */
   /*font-family: Roboto Slab;*/
-  background-color: black;
+  background-color: #111;
   color: white;
   margin: 0;
 }
@@ -111,7 +113,6 @@ p {
 }
 
 .app {
-  max-width: 1000px;
   width: 85%;
   margin: auto;
 }
@@ -161,17 +162,15 @@ p {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  max-width: 1450px;
+  max-width: 1024px;
   margin: auto;
 }
 
 .form {
-  padding: 8px;
   margin: auto;
   max-width: 400px;
 }
-
-.formField {
+.form .formField {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -179,32 +178,33 @@ p {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding-bottom: 16px;
-  max-width: 400px;
+  row-gap: 16px;
   font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
-
-.formField label {
-  font-size: 16px;
+.form .formField label {
+  font-size: 1rem;
   font-weight: bold;
-  margin-bottom: 16px;
 }
-
-.formField input {
-  font-size: 16px;
+.form .formField label,
+.form .formField input,
+.form .formField textarea {
+  font-size: 1rem;
+}
+.form .formField input,
+.form .formField textarea {
   padding: 12px;
-  margin-bottom: 16px;
   font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
-
-.formField textarea {
-  font-size: 16px;
-  padding: 12px;
+.form .formField input:focus,
+.form .formField textarea:focus {
+  outline: 2px solid #0078d4;
+  border-radius: 2px;
+}
+.form .formField textarea {
   max-width: 376px;
   height: 105px;
   min-height: 21px;
   max-height: 210px;
-  font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
   resize: vertical;
 }
 
@@ -222,9 +222,9 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -249,14 +249,11 @@ p {
 
 .bars {
   opacity: 0;
-  display: none;
+  visibility: hidden;
   padding: 10.5px 12.5px;
   float: right;
   cursor: pointer;
-  -webkit-transition: opacity 0.5s;
-  transition: opacity 0.5s;
 }
-
 .bars .bar {
   display: block;
   width: 25px;
@@ -267,16 +264,13 @@ p {
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
-
 .bars.active .bar:nth-child(1) {
   -webkit-transform: translateY(8px) rotate(-45deg);
           transform: translateY(8px) rotate(-45deg);
 }
-
 .bars.active .bar:nth-child(2) {
   opacity: 0;
 }
-
 .bars.active .bar:nth-child(3) {
   -webkit-transform: translateY(-8px) rotate(45deg);
           transform: translateY(-8px) rotate(45deg);
@@ -292,12 +286,11 @@ p {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  min-width: 314px;
   /* background-color: aqua; */
   height: 50px;
   overflow: hidden;
-  -webkit-transition: height 0.5s, opacity 0.5s;
-  transition: height 0.5s, opacity 0.5s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .item {
@@ -314,8 +307,9 @@ p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
 }
-
 .item.title {
   padding: 0;
   width: 65px;
@@ -323,11 +317,16 @@ p {
       -ms-flex-pack: center;
           justify-content: center;
 }
+.item:hover {
+  color: #0078d4;
+}
 
-@media screen and (max-width: 528px) {
+@media screen and (max-width: 768px) {
   .bars {
     opacity: 1;
-    display: block;
+    visibility: visible;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
   }
   .items {
     height: 0;
@@ -340,6 +339,11 @@ p {
     -webkit-box-pack: space-evenly;
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    -webkit-transition: height 0.5s, opacity 0.5s;
+    transition: height 0.5s, opacity 0.5s;
   }
   .navHolder.active {
     height: 100vh;

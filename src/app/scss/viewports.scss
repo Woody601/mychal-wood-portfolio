@@ -1,7 +1,8 @@
-@media screen and (max-width: 528px) {
+@media screen and (max-width: 768px) {
   .bars {
     opacity: 1;
-    display: block;
+    visibility: visible;
+    transition: 0.5s;
   }
 
   .items {
@@ -10,10 +11,13 @@
     flex-direction: column;
     width: 100vw;
     justify-content: space-evenly;
+    align-items: stretch;
+    transition: height 0.5s, opacity 0.5s;
   }
 
   .navHolder.active {
     height: 100vh;
+
     .items {
       display: flex;
       opacity: 1;
