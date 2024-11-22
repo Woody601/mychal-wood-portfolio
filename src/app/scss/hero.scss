@@ -8,6 +8,9 @@
   text-align: center;
   row-gap: 20px;
   font-size: clamp(16px, 14vw, 44px);
+  &.home {
+    height: -webkit-fill-available;
+  }
   h1 {
     color: white;
     font-size: clamp(16px, 14vw, 44px);
