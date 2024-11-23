@@ -9,6 +9,19 @@
   border-color: white;
 }
 
+.home {
+  height: calc(100vh - 110px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .hero {
   width: 100%;
   display: -webkit-box;
@@ -28,17 +41,18 @@
   text-align: center;
   row-gap: 20px;
   font-size: clamp(16px, 14vw, 44px);
+  color: #0078d4;
 }
 .hero.home {
   height: -webkit-fill-available;
 }
 .hero h1 {
-  color: white;
   font-size: clamp(16px, 14vw, 44px);
   font-family: Lato;
 }
 .hero h2 {
   font-size: 24px;
+  color: #fff;
 }
 .hero h1,
 .hero h2 {
@@ -124,16 +138,23 @@ p {
   max-width: 860px;
   margin: 0 auto;
   padding: 30px 30px;
-  height: -webkit-fill-available;
 }
 
 /* The pagescroll is made to keep the scrolling bar of the page's content out of the nav bar that is at the top. */
 .pagescroll {
   width: 100%;
+  margin-top: 50px;
   margin: 50px auto auto;
   overflow-y: auto;
   /* The height is calulated to be the full height of the device's screen, minus 50px to compensate for the nav bar at the top. */
   height: calc(100vh - 50px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 section {
@@ -255,8 +276,8 @@ section {
           justify-content: space-between;
   -webkit-box-shadow: inset 0 -1px var(--ds-gray-alpha-400);
           box-shadow: inset 0 -1px var(--ds-gray-alpha-400);
-  -webkit-box-shadow: inset 0 -1px #e6edf3;
-          box-shadow: inset 0 -1px #e6edf3;
+  -webkit-box-shadow: inset 0 -1px #fff;
+          box-shadow: inset 0 -1px #fff;
   overflow: clip;
   -webkit-transition: height 0.5s, opacity 0.5s;
   transition: height 0.5s, opacity 0.5s;
@@ -276,8 +297,10 @@ section {
   background-color: #fff;
   height: 3px;
   border-radius: 5px;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: background-color 0.2s, opacity 0.5s, -webkit-transform 0.5s;
+  transition: background-color 0.2s, opacity 0.5s, -webkit-transform 0.5s;
+  transition: background-color 0.2s, opacity 0.5s, transform 0.5s;
+  transition: background-color 0.2s, opacity 0.5s, transform 0.5s, -webkit-transform 0.5s;
 }
 .bars.active .bar:nth-child(1) {
   -webkit-transform: translateY(8px) rotate(-45deg);
@@ -289,6 +312,10 @@ section {
 .bars.active .bar:nth-child(3) {
   -webkit-transform: translateY(-8px) rotate(45deg);
           transform: translateY(-8px) rotate(45deg);
+}
+
+.bars:hover .bar {
+  background-color: #0078d4;
 }
 
 .items {
