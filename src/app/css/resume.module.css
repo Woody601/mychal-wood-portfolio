@@ -1,0 +1,56 @@
+.resumeTable {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 12pt;
+  max-width: 680px;
+  margin: auto;
+}
+.resumeTable h1,
+.resumeTable h2,
+.resumeTable p,
+.resumeTable a,
+.resumeTable li,
+.resumeTable span {
+  font-family: Roboto Slab;
+  margin-bottom: 0;
+  font-size: 11pt;
+}
+.resumeTable a {
+  color: #7eb1ff;
+}
+.resumeTable section {
+  display: block;
+}
+.resumeTable table {
+  width: 100%;
+  margin-bottom: 0;
+  border-collapse: collapse;
+}
+.resumeTable .name {
+  font-size: 16pt;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.resumeTable .contactText {
+  font-size: 12pt;
+}
+.resumeTable .rightAlign {
+  text-align: right;
+}
+.resumeTable .sectionTitle {
+  font-size: 12pt;
+  font-weight: bold;
+  border-bottom: 1px solid #fff;
+}
+.resumeTable .positionTitle {
+  font-style: italic;
+  font-weight: bold;
+}
+.resumeTable ul {
+  padding-left: 18px;
+}

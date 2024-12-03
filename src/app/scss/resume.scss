@@ -1,0 +1,58 @@
+.resumeTable {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12pt;
+  max-width: 680px;
+  margin: auto;
+  h1,
+  h2,
+  p,
+  a,
+  li,
+  span {
+    font-family: Roboto Slab;
+    margin-bottom: 0;
+    font-size: 11pt;
+  }
+  a {
+    color: #7eb1ff;
+  }
+  section {
+    display: block;
+  }
+  table {
+    width: 100%;
+    margin-bottom: 0;
+    border-collapse: collapse;
+    td,
+    ul {
+    }
+  }
+  .name {
+    font-size: 16pt;
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+
+  .contactText {
+    font-size: 12pt;
+  }
+
+  .rightAlign {
+    text-align: right;
+  }
+
+  .sectionTitle {
+    font-size: 12pt;
+    font-weight: bold;
+    border-bottom: 1px solid #fff;
+  }
+
+  .positionTitle {
+    font-style: italic;
+    font-weight: bold;
+  }
+  ul {
+    padding-left: 18px;
+  }
+}

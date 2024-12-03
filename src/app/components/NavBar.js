@@ -63,12 +63,12 @@ export default function NavBar() {
         <Menu.Menu className="items">
           <Menu.Item name="about" as={Link} href="/about" onClick={toggleNav} />
           <Menu.Item name="work" as={Link} href="/work" onClick={toggleNav} />
-          {/* <Menu.Item
+          <Menu.Item
             name="resume"
             as={Link}
-            href="/resune"
+            href="/resume"
             onClick={toggleNav}
-          /> */}
+          />
           <Menu.Item
             name="contact"
             as={Link}

@@ -2,24 +2,11 @@
 import React from "react";
 import styles from "../css/styles.module.css";
 import Head from "next/head";
-import {
-  Image,
-  Grid,
-  GridRow,
-  GridColumn,
-  Header,
-  Button,
-} from "semantic-ui-react";
+import { Image, Button } from "semantic-ui-react";
 import "../css/Home.module.css";
-import Link from "next/link";
 export default function About() {
   return (
     <>
-      <Head>
-        <title>About</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <section>
         <h1 className="hero">About</h1>
         <p>
