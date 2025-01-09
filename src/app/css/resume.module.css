@@ -54,3 +54,9 @@
 .resumeTable ul {
   padding-left: 18px;
 }
+.resumeTable .educationSection tbody {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  row-gap: 19px;
+}

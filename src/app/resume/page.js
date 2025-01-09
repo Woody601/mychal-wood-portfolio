@@ -33,7 +33,9 @@ export default function Resume() {
                 </Link>
               </td>
               <td className={styles.rightAlign}>
-                <span className={styles.contactText}>(317) 989-7221</span>
+                <Link href="tel:+3179897221" className={styles.contactText}>
+                  (317) 989-7221
+                </Link>
               </td>
             </tr>
           </tbody>
@@ -50,18 +52,19 @@ export default function Resume() {
                 <p>
                   IUI Luddy School of Informatics, Computing, and Engineering
                 </p>
-                <p>Major: Media Arts and Science</p>
-                <p>Minor: Informatics</p>
+                <p>Bachelor's Degree in Media Arts and Science</p>
+                <br />
               </td>
               <td className={styles.rightAlign}>
                 <p>Indianapolis, IN</p>
-                <p>Expected Graduation: Fall 2024</p>
+                <p>Graduated December 2024</p>
+                <br />
               </td>
             </tr>
             <tr>
               <td>
                 <p>Ivy Tech Community College</p>
-                <p>Associates Degree in Informatics</p>
+                <p>Associate's Degree in Informatics</p>
               </td>
               <td className={styles.rightAlign}>
                 <p>Indianapolis, IN</p>
