@@ -62,7 +62,12 @@ export default function NavBar() {
         </div>
         <Menu.Menu className="items">
           <Menu.Item name="about" as={Link} href="/about" onClick={toggleNav} />
-          <Menu.Item name="work" as={Link} href="/work" onClick={toggleNav} />
+          <Menu.Item
+            name="projects"
+            as={Link}
+            href="/projects"
+            onClick={toggleNav}
+          />
           <Menu.Item
             name="resume"
             as={Link}

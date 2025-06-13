@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function WorkProject(props) {
   const { src, project, title, description } = props;
   return (
-    <Link href={`/work/${project}`} className={styles.projectitem}>
+    <Link href={`/projects/${project}`} className={styles.projectitem}>
       <Image src={src} />
       <h3>{title}</h3>
       <p>{description}</p>
