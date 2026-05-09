@@ -1,7 +1,4 @@
-"use client";
-import React from "react";
-import Head from "next/head";
-import { Button } from "semantic-ui-react";
+import { Button } from "@/app/components/Button";
 
 export default function Home() {
   return (

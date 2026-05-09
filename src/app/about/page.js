@@ -1,9 +1,8 @@
 "use client";
 import React from "react";
 import styles from "../css/styles.module.css";
-import Head from "next/head";
-import { Image, Button } from "semantic-ui-react";
-import "../css/Home.module.css";
+import { Button } from "../components/Button";
+
 export default function About() {
   return (
     <>
@@ -13,11 +12,7 @@ export default function About() {
           I'm Mychal Wood, a Full Stack Web Developer located in the Greater
           Indianapolis area.
         </p>
-        <Image
-          size="medium"
-          src="Mychal_Wood.jpg"
-          className={styles.portrait}
-        />
+        <img src="Mychal_Wood.jpg" className={styles.portrait} />
       </section>
       <section>
         <h1>Front End Development</h1>
@@ -42,16 +37,6 @@ export default function About() {
             <p>Sass</p>
           </li>
         </ul>
-      </section>
-      <section>
-        <h1>Contact Me</h1>
-        <p>
-          Want to get in touch with me? Click the button below and fill out the
-          form!
-        </p>
-        <Button className="button" href="/contact">
-          Contact
-        </Button>
       </section>
     </>
   );

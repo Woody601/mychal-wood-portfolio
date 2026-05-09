@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Menu } from "semantic-ui-react";
 import Link from "next/link";
+import { Button } from "./Button";
 
 export default function NavBar() {
   // State to store the screen width
@@ -47,41 +47,29 @@ export default function NavBar() {
   }, []); // Empty dependency array ensures the effect runs once on mount
   return (
     <>
-      <Menu className={isToggled ? "navHolder active" : "navHolder"}>
-        <Menu.Item
-          name="mw"
-          as={Link}
-          className="title"
-          onClick={closeNav}
-          href="/"
-        />
+      <div className={isToggled ? "navHolder active" : "navHolder"}>
+        <Link className="title item" onClick={closeNav} href="/">
+          MW
+        </Link>
+
         <div className={isToggled ? "bars active" : "bars"} onClick={toggleNav}>
           <span className="bar"></span>
           <span className="bar"></span>
           <span className="bar"></span>
         </div>
-        <Menu.Menu className="items">
-          <Menu.Item name="about" as={Link} href="/about" onClick={toggleNav} />
-          <Menu.Item
-            name="projects"
-            as={Link}
-            href="/projects"
-            onClick={toggleNav}
-          />
-          <Menu.Item
-            name="resume"
-            as={Link}
-            href="/resume"
-            onClick={toggleNav}
-          />
-          <Menu.Item
-            name="contact"
-            as={Link}
-            href="/contact"
-            onClick={toggleNav}
-          />
-        </Menu.Menu>
-      </Menu>
+        <div className="items">
+          <Link onClick={closeNav} href="/about" className="item">
+            About
+          </Link>
+          <Link onClick={closeNav} href="/projects" className="item">
+            Projects
+          </Link>
+
+          <Link onClick={closeNav} href="/resume" className="item">
+            Resume
+          </Link>
+        </div>
+      </div>
     </>
   );
 }

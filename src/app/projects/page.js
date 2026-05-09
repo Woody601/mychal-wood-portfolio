@@ -11,12 +11,23 @@ export default async function Projects() {
     ...doc.data(),
   }));
 
+  // Separate into prioritized and non-prioritized entries
+  const prioritized = projects
+    .filter((entry) => entry.priority !== undefined)
+    .sort((a, b) => a.priority - b.priority);
+
+  const nonPrioritized = projects.filter(
+    (entry) => entry.priority === undefined
+  );
+
+  const orderedProjects = [...prioritized, ...nonPrioritized];
+
   return (
     <div id={styles.project} className={styles.container}>
       <section>
         <h1 className="hero">Projects</h1>
         <div className={styles.project}>
-          {projects.map((entry) => (
+          {orderedProjects.map((entry) => (
             <WorkProject
               key={entry.id}
               src={entry.id + ".png"}

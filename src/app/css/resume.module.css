@@ -7,14 +7,16 @@
       -ms-flex-direction: column;
           flex-direction: column;
   row-gap: 12pt;
-  max-width: 680px;
+  max-width: 706px;
   margin: auto;
+  font-family: Roboto Slab;
 }
 .resumeTable h1,
 .resumeTable h2,
 .resumeTable p,
 .resumeTable a,
 .resumeTable li,
+.resumeTable strong,
 .resumeTable span {
   font-family: Roboto Slab;
   margin-bottom: 0;
@@ -23,8 +25,16 @@
 .resumeTable a {
   color: #7eb1ff;
 }
-.resumeTable section {
+.resumeTable .contactTable tbody {
   display: block;
+}
+.resumeTable .contactTable tbody tr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .resumeTable table {
   width: 100%;
@@ -34,7 +44,7 @@
 .resumeTable .name {
   font-size: 16pt;
   font-weight: bold;
-  margin-bottom: 0;
+  margin: auto auto 0;
 }
 .resumeTable .contactText {
   font-size: 12pt;
@@ -47,16 +57,32 @@
   font-weight: bold;
   border-bottom: 1px solid #fff;
 }
-.resumeTable .positionTitle {
+.resumeTable .title {
   font-style: italic;
   font-weight: bold;
 }
 .resumeTable ul {
-  padding-left: 18px;
+  padding-left: 40px;
 }
 .resumeTable .educationSection tbody {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   row-gap: 19px;
+  font-style: italic;
+}
+
+@media screen and (max-width: 768px) {
+  .resumeTable ul {
+    padding-left: 20px;
+  }
+  .resumeTable .contactTable tbody tr {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }

@@ -1,10 +1,8 @@
-"use client";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/app/firebase";
-import { Button, Link } from "semantic-ui-react";
+import { Button } from "@/app/components/Button";
 
 import React from "react";
-import "@/app/css/Home.module.css";
 export default async function ProjectDetail({ params }) {
   const { id } = params;
 
@@ -36,8 +34,7 @@ export default async function ProjectDetail({ params }) {
       {project.demoURL && (
         <>
           <h1>Live Demo</h1>
-          <p>Here is a link to a live demo of the website:</p>
-          <Button as={Link} href={project.demoURL} className="button">
+          <Button href={project.demoURL} className="button" target="_blank">
             Visit Site
           </Button>
         </>

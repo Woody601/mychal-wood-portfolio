@@ -1,12 +1,10 @@
-"use client";
-import React from "react";
 import Link from "next/link";
-import "@/app/css/Button.css";
+import "@/app/css/button.module.css";
 
-export default function Button({ href, children, onClick }) {
+export function Button({ href, children, onClick, target }) {
   if (href && onClick == null) {
     return (
-      <Link href={href} className="button">
+      <Link href={href} className="button" target={target}>
         {children}
       </Link>
     );

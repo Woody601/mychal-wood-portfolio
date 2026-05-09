@@ -2,13 +2,15 @@
   display: flex;
   flex-direction: column;
   row-gap: 12pt;
-  max-width: 680px;
+  max-width: 706px;
   margin: auto;
+  font-family: Roboto Slab;
   h1,
   h2,
   p,
   a,
   li,
+  strong,
   span {
     font-family: Roboto Slab;
     margin-bottom: 0;
@@ -17,21 +19,27 @@
   a {
     color: #7eb1ff;
   }
-  section {
-    display: block;
+  // section {
+  //   display: block;
+  // }
+  .contactTable {
+    tbody {
+      display: block;
+      tr {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
   }
   table {
     width: 100%;
     margin-bottom: 0;
     border-collapse: collapse;
-    td,
-    ul {
-    }
   }
   .name {
     font-size: 16pt;
     font-weight: bold;
-    margin-bottom: 0;
+    margin: auto auto 0;
   }
 
   .contactText {
@@ -48,17 +56,34 @@
     border-bottom: 1px solid #fff;
   }
 
-  .positionTitle {
+  .title {
     font-style: italic;
     font-weight: bold;
   }
   ul {
-    padding-left: 18px;
+    padding-left: 40px;
   }
   .educationSection {
     tbody {
       display: flex;
       row-gap: 19px;
+      font-style: italic;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .resumeTable {
+    ul {
+      padding-left: 20px;
+    }
+    .contactTable {
+      tbody {
+        tr {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
     }
   }
 }
