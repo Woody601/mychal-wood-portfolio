@@ -18,6 +18,15 @@ export default async function Resume() {
     }
   });
 
+  // === SORT EXPERIENCE BY ORDER FIELD ===
+  if (resume.experience?.length) {
+    resume.experience.sort((a, b) => {
+      const orderA = typeof a.order === "number" ? a.order : 9999;
+      const orderB = typeof b.order === "number" ? b.order : 9999;
+      return orderA - orderB; // Lower order number appears first
+    });
+  }
+
   return (
     <div className={styles.resumeTable}>
       {resume.contactInfo && (
@@ -32,17 +41,29 @@ export default async function Resume() {
                   </span>
                 </td>
                 <td>
-                  <a href={"tel:" + resume.contactInfo.phone} className={styles.contactText} target="_blank">
+                  <a
+                    href={"tel:" + resume.contactInfo.phone}
+                    className={styles.contactText}
+                    target="_blank"
+                  >
                     {resume.contactInfo.phone}
                   </a>
                 </td>
                 <td>
-                  <a href={"mailto:" + resume.contactInfo.email} className={styles.contactText} target="_blank">
+                  <a
+                    href={"mailto:" + resume.contactInfo.email}
+                    className={styles.contactText}
+                    target="_blank"
+                  >
                     {resume.contactInfo.email}
                   </a>
                 </td>
                 <td>
-                  <a href={"https://" + resume.contactInfo.linkedin} className={styles.contactText} target="_blank">
+                  <a
+                    href={"https://" + resume.contactInfo.linkedin}
+                    className={styles.contactText}
+                    target="_blank"
+                  >
                     {resume.contactInfo.linkedin}
                   </a>
                 </td>
@@ -77,9 +98,9 @@ export default async function Resume() {
       {resume.experience && (
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Work Experience</h2>
-          <table >
-          {resume.experience.map((exp, i) => (
-           <tbody key={i}>
+          <table>
+            {resume.experience.map((exp, i) => (
+              <tbody key={i}>
                 <tr>
                   <td>
                     <p className={styles.title}>{exp.title}</p>
@@ -106,11 +127,8 @@ export default async function Resume() {
                   </td>
                 </tr>
               </tbody>
-           
-          ))}
-          
-              
-            </table>
+            ))}
+          </table>
         </section>
       )}
 
@@ -120,11 +138,13 @@ export default async function Resume() {
           <table>
             <tbody>
               {resume.honorsAndAwards.map((item, i) => (
-            <tr key={i}>
-              <td><strong>{item.name}</strong>, {item.issuer}</td>
-              <td className={styles.rightAlign}>{item.date}</td>
-            </tr>
-          ))}
+                <tr key={i}>
+                  <td>
+                    <strong>{item.name}</strong>, {item.issuer}
+                  </td>
+                  <td className={styles.rightAlign}>{item.date}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </section>
@@ -136,11 +156,17 @@ export default async function Resume() {
           <table>
             <tbody>
               {resume.certifications.map((cert, i) => (
-            <tr key={i}>
-              <td><p><strong>{cert.name}</strong>, {cert.issuer}</p></td>
-              <td className={styles.rightAlign}><p>{cert.date}</p></td>
-            </tr>
-          ))}
+                <tr key={i}>
+                  <td>
+                    <p>
+                      <strong>{cert.name}</strong>, {cert.issuer}
+                    </p>
+                  </td>
+                  <td className={styles.rightAlign}>
+                    <p>{cert.date}</p>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </section>
@@ -152,14 +178,17 @@ export default async function Resume() {
           {Object.entries(resume.skills).map(([key, items]) => (
             <p key={key}>
               <strong>
-                {key.replace(/([A-Z])/g, " $1").replace(/^./, (s) => s.toUpperCase())}:{" "}
+                {key
+                  .replace(/([A-Z])/g, " $1")
+                  .replace(/^./, (s) => s.toUpperCase())}
+                :{" "}
               </strong>
               {items.join(", ")}
             </p>
           ))}
         </section>
       )}
-
+      {/* 
       {resume.activities && (
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Activities</h2>
@@ -187,7 +216,7 @@ export default async function Resume() {
             ))}
           </table>
         </section>
-      )}
+      )} */}
     </div>
   );
 }

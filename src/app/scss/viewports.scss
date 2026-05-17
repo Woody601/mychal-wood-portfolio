@@ -1,29 +1,23 @@
 @media screen and (max-width: 768px) {
-  .bars {
-    opacity: 1;
-    visibility: visible;
-    transition: 0.5s;
-  }
+  // .items {
+  //   height: 0;
+  //   opacity: 0;
+  //   flex-direction: column;
+  //   width: 100vw;
+  //   justify-content: space-evenly;
+  //   align-items: stretch;
+  //   transition: height 0.5s, opacity 0.5s;
+  // }
 
-  .items {
-    height: 0;
-    opacity: 0;
-    flex-direction: column;
-    width: 100vw;
-    justify-content: space-evenly;
-    align-items: stretch;
-    transition: height 0.5s, opacity 0.5s;
-  }
+  // .navHolder.active {
+  //   height: 100vh;
 
-  .navHolder.active {
-    height: 100vh;
-
-    .items {
-      display: flex;
-      opacity: 1;
-      height: calc(100vh - 50px);
-    }
-  }
+  //   .items {
+  //     display: flex;
+  //     opacity: 1;
+  //     height: calc(100vh - 50px);
+  //   }
+  // }
   .formContainer {
     flex-direction: column;
     align-items: center;

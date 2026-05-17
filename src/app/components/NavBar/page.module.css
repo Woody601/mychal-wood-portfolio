@@ -1,0 +1,332 @@
+.navHolder {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: -webkit-fill-available;
+  height: 50px;
+  margin-bottom: 0;
+  background-color: #000;
+  color: #fff;
+  opacity: 1;
+  font-weight: 500;
+  z-index: 50;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
+          box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
+  text-decoration: none;
+  font-family: Montserrat;
+  font-size: 12pt;
+  text-transform: uppercase;
+  -webkit-transition: height 0.5s, opacity 0.5s;
+  transition: height 0.5s, opacity 0.5s;
+}
+
+.bars {
+  opacity: 0;
+  visibility: hidden;
+  padding: 10.5px 12.5px;
+  float: right;
+  cursor: pointer;
+}
+.bars .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px 0;
+  border-radius: 5px;
+  background-color: #fff;
+  -webkit-transition: background-color 0.2s, opacity 0.5s, -webkit-transform 0.5s;
+  transition: background-color 0.2s, opacity 0.5s, -webkit-transform 0.5s;
+  transition: background-color 0.2s, opacity 0.5s, transform 0.5s;
+  transition: background-color 0.2s, opacity 0.5s, transform 0.5s, -webkit-transform 0.5s;
+}
+.bars:hover .bar {
+  background-color: #0078d4;
+}
+.bars.active .bar:nth-child(1) {
+  -webkit-transform: translateY(8px) rotate(-45deg);
+          transform: translateY(8px) rotate(-45deg);
+}
+.bars.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.bars.active .bar:nth-child(3) {
+  -webkit-transform: translateY(-8px) rotate(45deg);
+          transform: translateY(-8px) rotate(45deg);
+}
+
+.itemsContainer {
+  display: block;
+  background-color: inherit;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  z-index: 999;
+}
+.itemsContainer span:hover {
+  color: #fff;
+}
+
+.items,
+.menuTop {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 50px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: inherit;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+
+.items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.menuTop {
+  display: none;
+}
+.menuTop p {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+  padding: 0 20px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.item {
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 20px;
+  color: inherit;
+  text-decoration: inherit;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  text-transform: inherit;
+  -webkit-transition: color 0.2s, -webkit-transform 0.2s;
+  transition: color 0.2s, -webkit-transform 0.2s;
+  transition: transform 0.2s, color 0.2s;
+  transition: transform 0.2s, color 0.2s, -webkit-transform 0.2s;
+}
+.item .bars {
+  position: relative;
+}
+.item:hover {
+  color: #0078d4;
+}
+.item:hover .arrow {
+  border-color: #0078d4;
+}
+
+.title {
+  color: #0078d4;
+}
+
+.itemDropDown {
+  display: block;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  height: 65px;
+  overflow: clip;
+  background-color: inherit;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: height 0.25s ease;
+  transition: height 0.25s ease;
+}
+.itemDropDown.active {
+  overflow-clip-margin: 3px;
+}
+.itemDropDown .item {
+  width: -webkit-fill-available;
+}
+.itemDropDown .items {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: auto;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
+          box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
+}
+
+.arrowContainer {
+  display: inline-block;
+}
+.arrowContainer .arrow {
+  display: inline-block;
+  padding: 3px;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -webkit-transition: border-color 0.2s, -webkit-transform 0.25s;
+  transition: border-color 0.2s, -webkit-transform 0.25s;
+  transition: transform 0.25s, border-color 0.2s;
+  transition: transform 0.25s, border-color 0.2s, -webkit-transform 0.25s;
+}
+.arrowContainer.active .arrow:nth-child(1) {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.66);
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.5s, visibility 0.5s;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media screen and (max-width: 768px) {
+  .menuTop {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.1019607843);
+  }
+  .navHolder.active .itemsContainer {
+    -webkit-transform: translate(-450px);
+            transform: translate(-450px);
+  }
+  .navHolder.active .itemDropDown .items {
+    -webkit-transform: translatex(0);
+            transform: translatex(0);
+  }
+  .navHolder .itemsContainer {
+    border-left: solid 1px rgba(255, 255, 255, 0.1019607843);
+    position: absolute;
+    right: -450px;
+    width: 450px;
+    height: 100vh;
+    padding: 0;
+    -webkit-transition: opacity 0s, -webkit-transform 0.5s;
+    transition: opacity 0s, -webkit-transform 0.5s;
+    transition: transform 0.5s, opacity 0s;
+    transition: transform 0.5s, opacity 0s, -webkit-transform 0.5s;
+  }
+  .navHolder .itemsContainer .items {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    height: calc(100vh - 50px);
+    padding: 50px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-transition: opacity 0s, -webkit-transform 0.5s;
+    transition: opacity 0s, -webkit-transform 0.5s;
+    transition: transform 0.5s, opacity 0s;
+    transition: transform 0.5s, opacity 0s, -webkit-transform 0.5s;
+  }
+  .navHolder .itemsContainer .items .item {
+    position: relative;
+    height: 50px;
+    padding: 0;
+    -webkit-box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
+            box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
+  }
+  .bars {
+    position: absolute;
+    right: 0;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+  .itemDropDown {
+    overflow-clip-margin: 3px;
+    -webkit-transition: height 0.25s;
+    transition: height 0.25s;
+  }
+  .itemDropDown .items {
+    position: relative;
+    top: 0;
+    right: 0;
+    overflow-y: clip;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  .itemDropDown .items .item {
+    padding-left: 2.5rem;
+  }
+}
+@media screen and (max-width: 449px) {
+  .navHolder.active .itemsContainer {
+    -webkit-transform: translate(-100%);
+            transform: translate(-100%);
+  }
+  .navHolder .itemsContainer {
+    width: 100%;
+    right: -100%;
+  }
+  .itemDropDown {
+    overflow-clip-margin: 3px;
+  }
+  .itemDropDown .items {
+    position: relative;
+    top: 0;
+    right: 0;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+}
+@media screen and (max-width: 272px) {
+  .title {
+    display: none;
+  }
+}

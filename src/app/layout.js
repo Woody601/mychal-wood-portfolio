@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./css/globals.css";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar/page";
+import Banner from "./components/Banner/page";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,6 +15,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <NavBar />
+        <Banner>
+          I&rsquo;m currently revamping my portfolio website to bring you more
+          of my work and features to enhance your experience — thank you for
+          your patience!
+        </Banner>
         <div className="pagescroll">
           <div className="app">{children}</div>
         </div>
