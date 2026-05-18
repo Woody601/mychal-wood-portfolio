@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(python -c ' *)",
-      "PowerShell(\\(Get-Content \"c:\\\\Users\\\\School\\\\mychal-wood-portfolio\\\\public\\\\_docx_doc.txt\" | Measure-Object -Line\\).Lines)"
-    ]
-  }
-}
