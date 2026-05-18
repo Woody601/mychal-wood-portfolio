@@ -1,10 +1,15 @@
 import { doc, getDoc } from "firebase/firestore";
-import { db } from "../../firebase";
-import Button from "../../components/Button/page";
+import { db } from "../../../app/firebase";
+import Button from "../../../app/components/Button/page";
+// Force dynamic rendering (important on canary)
+export const dynamic = "force-dynamic";
 
-import React from "react";
 export default async function ProjectDetail({ params }) {
-  const { id } = params;
+  const { id } = await params; // ← This is the key change
+
+  if (!id) {
+    return <div>Invalid Project ID</div>;
+  }
 
   const docRef = doc(db, "projects", id);
   const docSnap = await getDoc(docRef);
@@ -19,22 +24,26 @@ export default async function ProjectDetail({ params }) {
     <section>
       <h1 className="hero">{project.title}</h1>
 
-      <h1>About this Project</h1>
+      <h2>About this Project</h2>
       <p>{project.longDescription}</p>
-      <h1>Software used</h1>
+
+      <h2>Software Used</h2>
       <p>Here are the tools and software that were used:</p>
 
       <ul>
         {project.softwareUsed?.map((software, index) => (
-          <li key={index}>
-            <p>{software}</p>
-          </li>
+          <li key={index}>{software}</li>
         ))}
       </ul>
+
       {project.demoURL && (
         <>
-          <h1>Live Demo</h1>
-          <Button href={project.demoURL} className="button" target="_blank">
+          <h2>Live Demo</h2>
+          <Button
+            href={project.demoURL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Visit Site
           </Button>
         </>
