@@ -1,6 +1,6 @@
 import { doc, getDoc } from "firebase/firestore";
-import { db } from "@/app/firebase";
-import { Button } from "@/app/components/Button";
+import { db } from "../../firebase";
+import Button from "../../components/Button/page";
 
 import React from "react";
 export default async function ProjectDetail({ params }) {

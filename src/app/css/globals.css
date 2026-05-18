@@ -1,5 +1,10 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat&display=swap");
+html,
+body {
+  font-family: Lato, Roboto Slab, Arial, sans-serif;
+}
+
 .ui.message {
   color: white;
   background-color: #1b1c1d;
@@ -12,11 +17,11 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .hero {
@@ -26,14 +31,14 @@
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   text-transform: uppercase;
   text-align: center;
   row-gap: 20px;
@@ -56,45 +61,11 @@
   margin-bottom: 0;
 }
 
-.button {
-  padding: 0 20px;
-  height: 50px;
-  text-decoration: none;
-  font-family: Lato;
-  background-color: #fff;
-  border-radius: 8px;
-  color: #000;
-  text-transform: uppercase;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  font-weight: 600;
-  outline: 0;
-  cursor: pointer;
-  border: 0;
-  font-size: 1rem;
-  -webkit-transition: 0.2s ease;
-  transition: 0.2s ease;
-}
-.button:active {
-  outline: none;
-}
-.button:hover {
-  background-color: #0078d4;
-  color: white;
-}
-
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: 0;
-  box-sizing: 0;
+          box-sizing: 0;
 }
 
 html,
@@ -144,14 +115,13 @@ p {
   margin: 50px auto auto;
   overflow-y: auto;
   /* The height is calulated to be the full height of the device's screen, minus 50px to compensate for the nav bar at the top. */
-  height: calc(100vh - 50px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 section {
@@ -160,110 +130,18 @@ section {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.products {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-.work {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  max-width: 1024px;
-  margin: auto;
-}
-
-.form {
-  margin: auto;
-  max-width: 400px;
-}
-.form .formField {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  row-gap: 16px;
-  font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
-}
-.form .formField label {
-  font-size: 1rem;
-  font-weight: bold;
-}
-.form .formField label,
-.form .formField input,
-.form .formField textarea {
-  font-size: 1rem;
-}
-.form .formField input,
-.form .formField textarea {
-  padding: 12px;
-  font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
-}
-.form .formField input:focus,
-.form .formField textarea:focus {
-  outline: 2px solid #0078d4;
-  border-radius: 2px;
-}
-.form .formField textarea {
-  max-width: 376px;
-  height: 105px;
-  min-height: 21px;
-  max-height: 210px;
-  resize: vertical;
-}
-
-.TestOne body {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 @media screen and (max-width: 768px) {
   .formContainer {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
     -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
-}
-#copyright {
-  background-color: #242424;
-  color: #777777;
-  padding: 30px 0px;
-  text-align: center;
-}
-
-#copyright p {
-  margin-bottom: 0;
-  font-size: 14px;
-  font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }

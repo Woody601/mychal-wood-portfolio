@@ -1,0 +1,28 @@
+.projectitem {
+  flex-basis: 350px;
+  background-color: #222;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease; /* Smooth transform effect on hover */
+  text-decoration: none;
+  &:hover {
+    cursor: pointer;
+    user-select: none;
+  }
+  img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+    aspect-ratio: 3.5 / 2;
+  }
+  h3 {
+    font-size: 1.5rem;
+    margin-top: 15px;
+    color: #0078d4;
+  }
+  p {
+    font-size: 1rem;
+    color: #bbb;
+  }
+}

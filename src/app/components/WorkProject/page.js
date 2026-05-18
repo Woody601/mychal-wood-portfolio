@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import styles from "@/app/css/styles.module.css";
+import styles from "./page.module.css";
 import Link from "next/link";
 
 export default function WorkProject(props) {

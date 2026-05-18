@@ -1,6 +1,6 @@
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
-import styles from "@/app/css/resume.module.css";
+import styles from "./page.module.css";
 
 export default async function Resume() {
   const snapshot = await getDocs(collection(db, "resume"));

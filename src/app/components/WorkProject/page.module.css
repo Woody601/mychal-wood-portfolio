@@ -1,0 +1,37 @@
+.projectitem {
+  -ms-flex-preferred-size: 350px;
+      flex-basis: 350px;
+  background-color: #222;
+  padding: 15px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+          box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease; /* Smooth transform effect on hover */
+  text-decoration: none;
+}
+.projectitem:hover {
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.projectitem img {
+  width: 100%;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+          box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+  aspect-ratio: 3.5/2;
+}
+.projectitem h3 {
+  font-size: 1.5rem;
+  margin-top: 15px;
+  color: #0078d4;
+}
+.projectitem p {
+  font-size: 1rem;
+  color: #bbb;
+}

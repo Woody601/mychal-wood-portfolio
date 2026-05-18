@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import styles from "../css/styles.module.css";
-import { Button } from "../components/Button";
+import { Button } from "../components/Button/page";
 
 export default function About() {
   return (

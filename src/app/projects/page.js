@@ -1,8 +1,9 @@
 // app/projects/page.js
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
-import WorkProject from "@/app/components/WorkProject";
-import styles from "@/app/css/work.module.css";
+
+import styles from "./page.module.css";
+import WorkProject from "../components/WorkProject/page";
 
 export default async function Projects() {
   const snapshot = await getDocs(collection(db, "projects"));
@@ -17,7 +18,7 @@ export default async function Projects() {
     .sort((a, b) => a.priority - b.priority);
 
   const nonPrioritized = projects.filter(
-    (entry) => entry.priority === undefined
+    (entry) => entry.priority === undefined,
   );
 
   const orderedProjects = [...prioritized, ...nonPrioritized];
