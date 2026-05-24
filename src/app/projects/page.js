@@ -31,7 +31,11 @@ export default async function Projects() {
           {orderedProjects.map((entry) => (
             <WorkProject
               key={entry.id}
-              src={entry.id + ".png"}
+              src={
+                "https://firebasestorage.googleapis.com/v0/b/mychal-wood-portfolio.firebasestorage.app/o/" +
+                entry.id +
+                ".png?alt=media"
+              }
               project={entry.id}
               title={entry.title}
               description={entry.shortDescription}
