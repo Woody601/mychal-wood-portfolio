@@ -84,7 +84,7 @@ export default function NavBar() {
           <span className={styles.bar}></span>
           <span className={styles.bar}></span>
         </div>
-        <div className={styles.itemsContainer}>
+        <div className={styles.menuContainer}>
           <div className={styles.menuTop}>
             <p>Menu</p>
             <div
@@ -97,22 +97,29 @@ export default function NavBar() {
             </div>
           </div>
 
-          <div className={styles.items}>
-            <Link href="/" onClick={closeNav} className={styles.item}>
-              Home
-            </Link>
-            <Link href="/about" onClick={closeNav} className={styles.item}>
-              About
-            </Link>
-            <Link href="/projects" onClick={closeNav} className={styles.item}>
-              Projects
-            </Link>
-            <Link href="/resume" onClick={closeNav} className={styles.item}>
-              Resume
-            </Link>
-            <Link href="/contact" onClick={closeNav} className={styles.item}>
-              Contact
-            </Link>
+          <div className={styles.itemsContainer}>
+            <div className={styles.items}>
+              <Link href="/" onClick={closeNav} className={styles.item}>
+                Home
+              </Link>
+              <Link href="/about" onClick={closeNav} className={styles.item}>
+                About
+              </Link>
+              <Link href="/projects" onClick={closeNav} className={styles.item}>
+                Projects
+              </Link>
+              <Link href="/resume" onClick={closeNav} className={styles.item}>
+                Resume
+              </Link>
+              <Link href="/contact" onClick={closeNav} className={styles.item}>
+                Contact
+              </Link>
+            </div>
+            {/* <div className={styles.items}>
+              <Link href="/contact" onClick={closeNav} className={styles.item}>
+                Sign In
+              </Link>
+            </div> */}
           </div>
         </div>
         <div

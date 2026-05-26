@@ -2,7 +2,7 @@ import ContactForm from "../components/ContactForm/page";
 import styles from "./page.module.css";
 
 export const metadata = {
-  title: "Contact – Indy Laser Designs",
+  title: "Contact",
 };
 
 export default function ContactPage() {

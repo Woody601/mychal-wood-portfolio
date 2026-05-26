@@ -20,7 +20,7 @@ $normal-transition: 0.5s;
   flex-wrap: wrap;
 
   width: -webkit-fill-available;
-  height: $nav-height;
+  min-height: $nav-height;
 
   margin-bottom: 0;
 
@@ -43,12 +43,13 @@ $normal-transition: 0.5s;
   transition:
     height $normal-transition,
     opacity $normal-transition;
+  column-gap: 50px;
 }
 
 .bars {
   opacity: 0;
   visibility: hidden;
-
+  display: none;
   padding: 10.5px 12.5px;
 
   float: right;
@@ -94,11 +95,8 @@ $normal-transition: 0.5s;
   }
 }
 
-.itemsContainer {
-  display: block;
-
+.menuContainer {
   background-color: inherit;
-
   box-sizing: border-box;
 
   z-index: 999;
@@ -109,7 +107,11 @@ $normal-transition: 0.5s;
     }
   }
 }
-
+.itemsContainer {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 50px;
+}
 .items,
 .menuTop {
   justify-content: space-between;
@@ -180,7 +182,7 @@ $normal-transition: 0.5s;
 
 .title {
   color: $primary;
-
+  height: 50px;
   // padding: 7.5px 15px;
 }
 
@@ -280,7 +282,7 @@ $normal-transition: 0.5s;
     border-bottom: solid 1px #ffffff1a;
   }
   .navHolder.active {
-    .itemsContainer {
+    .menuContainer {
       transform: translate(-450px);
     }
 
@@ -292,32 +294,35 @@ $normal-transition: 0.5s;
   }
 
   .navHolder {
-    .itemsContainer {
+    .menuContainer {
       border-left: solid 1px #ffffff1a;
       position: absolute;
       right: -450px;
-
       width: 450px;
-      height: calc(100vh);
-
+      // height: -webkit-fill-available;
+      height: 100vh;
+      align-content: start;
       padding: 0;
 
       transition:
         transform $normal-transition,
         opacity 0s;
-
-      .items {
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: stretch;
-
-        height: calc(100vh - 50px);
-
+      .itemsContainer {
+        grid-auto-flow: row;
         padding: 50px;
+        display: grid;
+        flex-direction: column;
+        height: calc(100% - 150px);
+        align-content: start;
+        overflow: auto;
+        align-content: space-between;
+      }
+      .items {
+        display: grid;
+        align-content: start;
+        justify-content: stretch;
 
-        overflow-y: auto;
-        overflow-x: hidden;
-
+        height: auto;
         transition:
           transform $normal-transition,
           opacity 0s;
@@ -345,7 +350,7 @@ $normal-transition: 0.5s;
 
     opacity: 1;
     visibility: visible;
-
+    display: block;
     transition: $normal-transition;
   }
 
@@ -372,13 +377,13 @@ $normal-transition: 0.5s;
 
 @media screen and (max-width: 449px) {
   .navHolder.active {
-    .itemsContainer {
+    .menuContainer {
       transform: translate(-100%);
     }
   }
 
   .navHolder {
-    .itemsContainer {
+    .menuContainer {
       width: 100%;
       right: -100%;
     }

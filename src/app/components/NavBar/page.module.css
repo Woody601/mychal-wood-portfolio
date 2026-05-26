@@ -15,7 +15,7 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   width: -webkit-fill-available;
-  height: 50px;
+  min-height: 50px;
   margin-bottom: 0;
   background-color: #000;
   color: #fff;
@@ -30,11 +30,15 @@
   text-transform: uppercase;
   -webkit-transition: height 0.5s, opacity 0.5s;
   transition: height 0.5s, opacity 0.5s;
+  -webkit-column-gap: 50px;
+     -moz-column-gap: 50px;
+          column-gap: 50px;
 }
 
 .bars {
   opacity: 0;
   visibility: hidden;
+  display: none;
   padding: 10.5px 12.5px;
   float: right;
   cursor: pointer;
@@ -66,15 +70,23 @@
           transform: translateY(-8px) rotate(45deg);
 }
 
-.itemsContainer {
-  display: block;
+.menuContainer {
   background-color: inherit;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   z-index: 999;
 }
-.itemsContainer span:hover {
+.menuContainer span:hover {
   color: #fff;
+}
+
+.itemsContainer {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: column;
+  -webkit-column-gap: 50px;
+     -moz-column-gap: 50px;
+          column-gap: 50px;
 }
 
 .items,
@@ -151,6 +163,7 @@
 
 .title {
   color: #0078d4;
+  height: 50px;
 }
 
 .itemDropDown {
@@ -233,7 +246,7 @@
     display: flex;
     border-bottom: solid 1px rgba(255, 255, 255, 0.1019607843);
   }
-  .navHolder.active .itemsContainer {
+  .navHolder.active .menuContainer {
     -webkit-transform: translate(-450px);
             transform: translate(-450px);
   }
@@ -241,39 +254,51 @@
     -webkit-transform: translatex(0);
             transform: translatex(0);
   }
-  .navHolder .itemsContainer {
+  .navHolder .menuContainer {
     border-left: solid 1px rgba(255, 255, 255, 0.1019607843);
     position: absolute;
     right: -450px;
     width: 450px;
     height: 100vh;
+    -ms-flex-line-pack: start;
+        align-content: start;
     padding: 0;
     -webkit-transition: opacity 0s, -webkit-transform 0.5s;
     transition: opacity 0s, -webkit-transform 0.5s;
     transition: transform 0.5s, opacity 0s;
     transition: transform 0.5s, opacity 0s, -webkit-transform 0.5s;
   }
-  .navHolder .itemsContainer .items {
+  .navHolder .menuContainer .itemsContainer {
+    grid-auto-flow: row;
+    padding: 50px;
+    display: -ms-grid;
+    display: grid;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-    -webkit-box-align: stretch;
-        -ms-flex-align: stretch;
-            align-items: stretch;
-    height: calc(100vh - 50px);
-    padding: 50px;
-    overflow-y: auto;
-    overflow-x: hidden;
+    height: calc(100% - 150px);
+    -ms-flex-line-pack: start;
+        align-content: start;
+    overflow: auto;
+    -ms-flex-line-pack: justify;
+        align-content: space-between;
+  }
+  .navHolder .menuContainer .items {
+    display: -ms-grid;
+    display: grid;
+    -ms-flex-line-pack: start;
+        align-content: start;
+    -webkit-box-pack: stretch;
+        -ms-flex-pack: stretch;
+            justify-content: stretch;
+    height: auto;
     -webkit-transition: opacity 0s, -webkit-transform 0.5s;
     transition: opacity 0s, -webkit-transform 0.5s;
     transition: transform 0.5s, opacity 0s;
     transition: transform 0.5s, opacity 0s, -webkit-transform 0.5s;
   }
-  .navHolder .itemsContainer .items .item {
+  .navHolder .menuContainer .items .item {
     position: relative;
     height: 50px;
     padding: 0;
@@ -285,6 +310,7 @@
     right: 0;
     opacity: 1;
     visibility: visible;
+    display: block;
     -webkit-transition: 0.5s;
     transition: 0.5s;
   }
@@ -306,11 +332,11 @@
   }
 }
 @media screen and (max-width: 449px) {
-  .navHolder.active .itemsContainer {
+  .navHolder.active .menuContainer {
     -webkit-transform: translate(-100%);
             transform: translate(-100%);
   }
-  .navHolder .itemsContainer {
+  .navHolder .menuContainer {
     width: 100%;
     right: -100%;
   }
