@@ -59,11 +59,11 @@ export default function NavBar() {
     }
   };
 
-  const themeChange = (event) => {
-    const newTheme = event.target.value;
-    setTheme(newTheme);
-    Cookie.set("theme", newTheme);
-  };
+  // const themeChange = (event) => {
+  //   const newTheme = event.target.value;
+  //   setTheme(newTheme);
+  //   Cookie.set("theme", newTheme);
+  // };
 
   useEffect(() => {
     const savedTheme = Cookie.get("theme");
