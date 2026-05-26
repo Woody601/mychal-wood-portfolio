@@ -50,47 +50,31 @@ export default function NavBar() {
   const updateScreenWidth = () => {
     setScreenWidth(window.innerWidth);
   };
-  const toggleAvatar = () => {
-    setAvatarToggled(!isAvatarToggled);
-  };
-  const closeAvatar = () => {
-    if (screenWidth > 769) {
-      setAvatarToggled(false);
-    }
-  };
-
-  // const themeChange = (event) => {
-  //   const newTheme = event.target.value;
-  //   setTheme(newTheme);
-  //   Cookie.set("theme", newTheme);
+  // const toggleAvatar = () => {
+  //   setAvatarToggled(!isAvatarToggled);
+  // };
+  // const closeAvatar = () => {
+  //   if (screenWidth > 769) {
+  //     setAvatarToggled(false);
+  //   }
   // };
 
-  useEffect(() => {
-    const savedTheme = Cookie.get("theme");
-    if (savedTheme) {
-      setTheme(savedTheme);
-    } else {
-      setTheme("system");
-      Cookie.set("theme", theme);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const handleClickOutside = (event) => {
+  //     if (
+  //       screenWidth >= 769 &&
+  //       userMenuRef.current &&
+  //       !userMenuRef.current.contains(event.target)
+  //     ) {
+  //       closeAvatar();
+  //     }
+  //   };
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        screenWidth >= 769 &&
-        userMenuRef.current &&
-        !userMenuRef.current.contains(event.target)
-      ) {
-        closeAvatar();
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [screenWidth]);
+  //   document.addEventListener("mousedown", handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   };
+  // }, [screenWidth]);
   useEffect(() => {
     // Set initial screen width
     updateScreenWidth();
