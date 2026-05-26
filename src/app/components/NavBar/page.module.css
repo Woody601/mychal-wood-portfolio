@@ -226,7 +226,7 @@
   visibility: visible;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 783px) {
   .menuTop {
     display: -webkit-box;
     display: -ms-flexbox;
