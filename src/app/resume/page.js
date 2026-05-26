@@ -1,7 +1,9 @@
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 import styles from "./page.module.css";
-
+export const metadata = {
+  title: "Resume",
+};
 export default async function Resume() {
   const snapshot = await getDocs(collection(db, "resume"));
 

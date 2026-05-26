@@ -1,0 +1,146 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+html,
+body {
+  font-family: Lato, Roboto Slab, Arial, sans-serif;
+}
+
+.ui.message {
+  color: white;
+  background-color: #1b1c1d;
+  border-color: white;
+}
+
+.home {
+  height: calc(100vh - 110px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.hero {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-transform: uppercase;
+  text-align: center;
+  row-gap: 20px;
+  font-size: clamp(16px, 14vw, 44px);
+  color: #0078d4;
+}
+.hero.home {
+  height: -webkit-fill-available;
+}
+.hero h1 {
+  font-size: clamp(16px, 14vw, 44px);
+  font-family: Lato;
+}
+.hero h2 {
+  font-size: 24px;
+  color: #fff;
+}
+.hero h1,
+.hero h2 {
+  margin-bottom: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: 0;
+          box-sizing: 0;
+}
+
+html,
+body {
+  /* height: 100%; */
+  /*font-family: Roboto Slab;*/
+  background-color: #111;
+  color: white;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Lato;
+}
+
+p {
+  font-size: 18px;
+}
+
+.app {
+  width: -webkit-fill-available;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 30px 30px;
+}
+
+/* The pagescroll is made to keep the scrolling bar of the page's content out of the nav bar that is at the top. */
+.pagescroll {
+  width: 100%;
+  margin-top: 50px;
+  margin: 50px auto auto;
+  overflow-y: auto;
+  /* The height is calulated to be the full height of the device's screen, minus 50px to compensate for the nav bar at the top. */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media screen and (max-width: 768px) {
+  .formContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}

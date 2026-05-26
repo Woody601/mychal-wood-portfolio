@@ -1,8 +1,9 @@
-"use client";
 import React from "react";
 import styles from "../css/styles.module.css";
 import { Button } from "../components/Button/page";
-
+export const metadata = {
+  title: "About",
+};
 export default function About() {
   return (
     <>

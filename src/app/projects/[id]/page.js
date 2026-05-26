@@ -3,7 +3,9 @@ import { db } from "../../../app/firebase";
 import Button from "../../../app/components/Button/page";
 // Force dynamic rendering (important on canary)
 export const dynamic = "force-dynamic";
-
+export const metadata = {
+  title: "Project Details",
+};
 export default async function ProjectDetail({ params }) {
   const { id } = await params; // ← This is the key change
 

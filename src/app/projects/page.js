@@ -4,7 +4,9 @@ import { db } from "../firebase";
 
 import styles from "./page.module.css";
 import WorkProject from "../components/WorkProject/page";
-
+export const metadata = {
+  title: "Projects",
+};
 export default async function Projects() {
   const snapshot = await getDocs(collection(db, "projects"));
   const projects = snapshot.docs.map((doc) => ({
