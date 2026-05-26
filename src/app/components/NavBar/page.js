@@ -13,14 +13,14 @@ import styles from "./page.module.css";
 export default function NavBar() {
   const [screenWidth, setScreenWidth] = useState(0);
   const [isToggled, setToggled] = useState(false);
-  const [isAvatarToggled, setAvatarToggled] = useState(false);
-  const [user, loading, error] = useAuthState(auth);
-  const [username, setUsername] = useState("");
-  const [currenEmail, setCurrentEmail] = useState("");
+  // const [isAvatarToggled, setAvatarToggled] = useState(false);
+  // const [user, loading, error] = useAuthState(auth);
+  // const [username, setUsername] = useState("");
+  // const [currenEmail, setCurrentEmail] = useState("");
 
-  const [avatar, setAvatar] = useState("");
-  const [theme, setTheme] = useState("");
-  const userMenuRef = useRef(null);
+  // const [avatar, setAvatar] = useState("");
+  // const [theme, setTheme] = useState("");
+  // const userMenuRef = useRef(null);
   // Close nav if screen size changes to desktop
   useEffect(() => {
     if (screenWidth >= 699 && isToggled) {
