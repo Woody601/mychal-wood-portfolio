@@ -1,23 +1,35 @@
 "use client";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import Link from "next/link";
 import styles from "./page.module.css";
-import Image from "next/image";
+// import Cookie from "js-cookie";
+// import Image from "next/image";
+// import Icon from "../Icon/page";
+// import ToggleSwitch from "../ToggleSwitch/page";
+// import { useAuthState } from "react-firebase-hooks/auth";
+// import { auth } from "../../firebase";
 // import SubNav from "./NavDropDown/page";
 
 export default function NavBar() {
   const [screenWidth, setScreenWidth] = useState(0);
   const [isToggled, setToggled] = useState(false);
+  const [isAvatarToggled, setAvatarToggled] = useState(false);
+  const [user, loading, error] = useAuthState(auth);
+  const [username, setUsername] = useState("");
+  const [currenEmail, setCurrentEmail] = useState("");
 
+  const [avatar, setAvatar] = useState("");
+  const [theme, setTheme] = useState("");
+  const userMenuRef = useRef(null);
   // Close nav if screen size changes to desktop
   useEffect(() => {
-    if (screenWidth >= 784 && isToggled) {
+    if (screenWidth >= 699 && isToggled) {
       setToggled(false);
     }
   }, [screenWidth, isToggled]);
 
   const toggleNav = () => {
-    if (screenWidth <= 783) {
+    if (screenWidth <= 698) {
       setToggled(!isToggled);
     }
   };
@@ -27,11 +39,58 @@ export default function NavBar() {
       setToggled(false);
     }
   }, [isToggled]);
-
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      closeNav();
+    } catch (error) {
+      console.error("Logout Error: ", error);
+    }
+  };
   const updateScreenWidth = () => {
     setScreenWidth(window.innerWidth);
   };
+  const toggleAvatar = () => {
+    setAvatarToggled(!isAvatarToggled);
+  };
+  const closeAvatar = () => {
+    if (screenWidth > 769) {
+      setAvatarToggled(false);
+    }
+  };
 
+  const themeChange = (event) => {
+    const newTheme = event.target.value;
+    setTheme(newTheme);
+    Cookie.set("theme", newTheme);
+  };
+
+  useEffect(() => {
+    const savedTheme = Cookie.get("theme");
+    if (savedTheme) {
+      setTheme(savedTheme);
+    } else {
+      setTheme("system");
+      Cookie.set("theme", theme);
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        screenWidth >= 769 &&
+        userMenuRef.current &&
+        !userMenuRef.current.contains(event.target)
+      ) {
+        closeAvatar();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [screenWidth]);
   useEffect(() => {
     // Set initial screen width
     updateScreenWidth();
@@ -116,9 +175,104 @@ export default function NavBar() {
               </Link>
             </div>
             {/* <div className={styles.items}>
-              <Link href="/contact" onClick={closeNav} className={styles.item}>
-                Sign In
-              </Link>
+              {user ? (
+                <div ref={userMenuRef} className="userProfile">
+                  <Image
+                    priority
+                    src={avatar}
+                    alt="user"
+                    width={40}
+                    height={40}
+                    draggable="false"
+                    quality={100}
+                    className="profilePic"
+                    onClick={() => toggleAvatar()}
+                  />
+                  <ul
+                    className="dropdown-content"
+                    style={{ display: isAvatarToggled ? "block" : "none" }}
+                  >
+                    <div className="userDetails">
+                      <p className="userName">{user.displayName}</p>
+                      <p className="userEmail">{user.email}</p>
+                    </div>
+                    <li className="sectionDivider" />
+                    <li onClick={closeAvatar}>
+                      <Link href="/devices" onClick={toggleNav}>
+                        Devices
+                      </Link>
+                    </li>
+                    <li onClick={closeAvatar}>
+                      <Link href="/items" onClick={toggleNav}>
+                        Items
+                      </Link>
+                    </li>
+                    <li onClick={closeAvatar}>
+                      <Link href="/dashboard" onClick={toggleNav}>
+                        Dashboard
+                      </Link>
+                    </li>
+                    <li onClick={closeAvatar}>
+                      <Link href="/account" onClick={toggleNav}>
+                        Account Settings
+                        <Icon icon="settings" type="google outlined" />
+                      </Link>
+                    </li>
+                    <li className="sectionDivider" />
+                    <li className="themeSetting">
+                      Theme
+                      <form className="themeSwitch" id="themeSwitch">
+                        <ToggleSwitch
+                          icon1="computer"
+                          type="radio"
+                          id="device"
+                          name="theme"
+                          value="device"
+                          title="system theme"
+                          checked={theme == "device"}
+                          onChange={themeChange}
+                          icontype="google outlined"
+                        />
+                        <ToggleSwitch
+                          icon1="light_mode"
+                          type="radio"
+                          id="light"
+                          name="theme"
+                          value="light"
+                          title="light theme"
+                          checked={theme == "light"}
+                          onChange={themeChange}
+                          icontype="google outlined"
+                        />
+                        <ToggleSwitch
+                          icon1="dark_mode"
+                          icontype="google outlined"
+                          type="radio"
+                          id="dark"
+                          name="theme"
+                          value="dark"
+                          title="dark theme"
+                          checked={theme == "dark"}
+                          onChange={themeChange}
+                        />
+                      </form>
+                    </li>
+                    <li className="sectionDivider" />
+                    <li onClick={closeAvatar}>
+                      <Link href="" onClick={handleLogout}>
+                        Log Out
+                        <Icon icon="logout" type="google outlined" />
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                <li>
+                  <Link href="/login" onClick={toggleNav}>
+                    Sign In
+                  </Link>
+                </li>
+              )}
             </div> */}
           </div>
         </div>
