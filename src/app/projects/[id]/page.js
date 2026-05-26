@@ -13,12 +13,10 @@ export default async function ProjectDetail({ params }) {
 
   const docRef = doc(db, "projects", id);
   const docSnap = await getDoc(docRef);
-
-  if (!docSnap.exists()) {
+  const project = docSnap.data();
+  if (!docSnap.exists() || project.visible == false) {
     return <div>Project not found.</div>;
   }
-
-  const project = docSnap.data();
 
   return (
     <section>
