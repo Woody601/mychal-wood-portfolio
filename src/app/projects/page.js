@@ -28,19 +28,21 @@ export default async function Projects() {
       <section>
         <h1 className="hero">Projects</h1>
         <div className={styles.project}>
-          {orderedProjects.map((entry) => (
-            <WorkProject
-              key={entry.id}
-              src={
-                "https://firebasestorage.googleapis.com/v0/b/mychal-wood-portfolio.firebasestorage.app/o/" +
-                entry.id +
-                ".png?alt=media"
-              }
-              project={entry.id}
-              title={entry.title}
-              description={entry.shortDescription}
-            />
-          ))}
+          {orderedProjects
+            .filter((entry) => entry.visible !== false)
+            .map((entry) => (
+              <WorkProject
+                key={entry.id}
+                src={
+                  "https://firebasestorage.googleapis.com/v0/b/mychal-wood-portfolio.firebasestorage.app/o/" +
+                  entry.id +
+                  ".png?alt=media"
+                }
+                project={entry.id}
+                title={entry.title}
+                description={entry.shortDescription}
+              />
+            ))}
         </div>
       </section>
     </div>

@@ -325,7 +325,14 @@
             box-shadow: none;
   }
 }
-@media screen and (max-width: 272px) {
+@media screen and (max-width: 450px) {
+  .navHolder {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
+@media screen and (max-width: 222px) {
   .title {
     display: none;
   }
