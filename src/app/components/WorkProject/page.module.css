@@ -11,6 +11,7 @@
   transition: transform 0.3s ease;
   transition: transform 0.3s ease, -webkit-transform 0.3s ease; /* Smooth transform effect on hover */
   text-decoration: none;
+  overflow: clip;
 }
 .projectitem:hover {
   cursor: pointer;

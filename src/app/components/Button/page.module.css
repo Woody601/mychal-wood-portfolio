@@ -3,9 +3,9 @@
   height: 50px;
   text-decoration: none;
   font-family: Lato;
-  background-color: #fff;
+  background-color: transparent;
   border-radius: 8px;
-  color: #000;
+  color: #0078d4;
   text-transform: uppercase;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -18,8 +18,8 @@
           justify-content: center;
   font-weight: 600;
   outline: 0;
+  border: 2px solid #0078d4;
   cursor: pointer;
-  border: 0;
   font-size: 1rem;
   -webkit-transition: 0.2s ease;
   transition: 0.2s ease;
@@ -29,5 +29,6 @@
 }
 .button:hover {
   background-color: #0078d4;
-  color: white;
+  border: 2px solid #0078d4;
+  color: #fff;
 }

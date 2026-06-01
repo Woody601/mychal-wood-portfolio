@@ -6,6 +6,7 @@
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
   transition: transform 0.3s ease; /* Smooth transform effect on hover */
   text-decoration: none;
+  overflow: clip;
   &:hover {
     cursor: pointer;
     user-select: none;

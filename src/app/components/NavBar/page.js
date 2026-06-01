@@ -13,6 +13,7 @@ import styles from "./page.module.css";
 export default function NavBar() {
   const [screenWidth, setScreenWidth] = useState(0);
   const [isToggled, setToggled] = useState(false);
+
   // const [isAvatarToggled, setAvatarToggled] = useState(false);
   // const [user, loading, error] = useAuthState(auth);
   // const [username, setUsername] = useState("");
@@ -23,13 +24,13 @@ export default function NavBar() {
   // const userMenuRef = useRef(null);
   // Close nav if screen size changes to desktop
   useEffect(() => {
-    if (screenWidth >= 699 && isToggled) {
+    if (screenWidth >= 784 && isToggled) {
       setToggled(false);
     }
   }, [screenWidth, isToggled]);
 
   const toggleNav = () => {
-    if (screenWidth <= 698) {
+    if (screenWidth <= 783) {
       setToggled(!isToggled);
     }
   };

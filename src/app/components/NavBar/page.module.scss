@@ -44,6 +44,7 @@ $normal-transition: 0.5s;
     height $normal-transition,
     opacity $normal-transition;
   column-gap: 50px;
+  border-bottom: 1px solid #ffffff1a;
 }
 
 .bars {
@@ -178,12 +179,19 @@ $normal-transition: 0.5s;
       border-color: $primary;
     }
   }
+  &:focus-visible {
+    z-index: 1;
+    outline-offset: -2px;
+  }
 }
 
 .title {
   color: $primary;
   height: 50px;
   // padding: 7.5px 15px;
+  &:focus-visible {
+    outline-offset: -2px;
+  }
 }
 
 .itemDropDown {
@@ -196,8 +204,6 @@ $normal-transition: 0.5s;
   overflow: clip;
 
   background-color: inherit;
-
-  user-select: none;
 
   transition: height 0.25s ease;
 
@@ -281,18 +287,6 @@ $normal-transition: 0.5s;
     display: flex;
     border-bottom: solid 1px #ffffff1a;
   }
-  .navHolder.active {
-    .menuContainer {
-      transform: translate(-450px);
-    }
-
-    .itemDropDown {
-      .items {
-        transform: translatex(0);
-      }
-    }
-  }
-
   .navHolder {
     .menuContainer {
       border-left: solid 1px #ffffff1a;
@@ -331,15 +325,36 @@ $normal-transition: 0.5s;
 
         .item {
           position: relative;
-
           height: $nav-height;
-
           padding: 0;
-
           box-shadow: $shadow;
+          // background-color: red;
+          pointer-events: none;
 
           // width: -webkit-fill-available;
         }
+      }
+    }
+  }
+  .navHolder.active {
+    .menuContainer {
+      transform: translate(-450px);
+      .itemsContainer {
+        .items {
+          .item {
+            user-select: auto;
+            pointer-events: all;
+            &:focus-visible {
+              outline-offset: 1px;
+            }
+          }
+        }
+      }
+    }
+
+    .itemDropDown {
+      .items {
+        transform: translatex(0);
       }
     }
   }
@@ -347,7 +362,6 @@ $normal-transition: 0.5s;
   .bars {
     position: absolute;
     right: 0;
-
     opacity: 1;
     visibility: visible;
     display: block;
@@ -356,16 +370,12 @@ $normal-transition: 0.5s;
 
   .itemDropDown {
     overflow-clip-margin: 3px;
-
     transition: height 0.25s;
-
     .items {
       position: relative;
       top: 0;
       right: 0;
-
       overflow-y: clip;
-
       box-shadow: none;
 
       .item {
@@ -396,7 +406,6 @@ $normal-transition: 0.5s;
       position: relative;
       top: 0;
       right: 0;
-
       box-shadow: none;
     }
   }
