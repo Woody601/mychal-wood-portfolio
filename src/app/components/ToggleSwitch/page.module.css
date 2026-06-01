@@ -1,0 +1,88 @@
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 2.813rem;
+  height: 1.594rem;
+  cursor: pointer;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+.switch .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 1.219rem;
+  width: 1.219rem;
+  left: 0.188rem;
+  bottom: 0.188rem;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.switch input:checked + .slider {
+  background-color: #004473;
+}
+.switch input:checked + .slider:before {
+  -webkit-transform: translateX(1.219rem);
+          transform: translateX(1.219rem);
+}
+.switch {
+  /* Rounded sliders */
+}
+.switch .slider.round {
+  border-radius: 1.063rem;
+}
+.switch .slider.round:before {
+  border-radius: 50%;
+}
+
+.switch input,
+.icon input,
+.radioContainer input {
+  display: none;
+}
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 9999px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+.icon i {
+  font-size: 1.5rem;
+}
+
+.radioContainer {
+  -webkit-transition: color 0.1s ease;
+  transition: color 0.1s ease;
+}
+.radioContainer .icon {
+  width: 2rem;
+  height: 2rem;
+}
+.radioContainer input[type=radio]:checked + label {
+  color: #000;
+  outline: 0.063rem solid #c9ced1;
+}
+
+.radioContainer:hover {
+  color: #000;
+}

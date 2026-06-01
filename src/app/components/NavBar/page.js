@@ -2,7 +2,6 @@
 import { useEffect, useState, useCallback, useRef } from "react";
 import Link from "next/link";
 import styles from "./page.module.css";
-// import Cookie from "js-cookie";
 // import Image from "next/image";
 // import Icon from "../Icon/page";
 // import ToggleSwitch from "../ToggleSwitch/page";
