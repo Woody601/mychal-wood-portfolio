@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import styles from "./page.module.css";
+import styles from "./page.module.scss";
 
 export default function Banner({ children }) {
   const [dismissed, setDismissed] = useState(false);

@@ -1,0 +1,135 @@
+@use "../navbar-variables.scss" as *;
+@use "../navbar-config.scss" as config;
+@use "src/app/styles/abstract/_variables.scss" as *;
+
+@mixin styles {
+  @media screen and (max-width: $nav-mobile-breakpoint) {
+    .menuContainer {
+      --menu-row-count: 0;
+
+      top: $navHeight;
+      right: 0;
+      left: 0;
+      width: 100%;
+      @if config.$mobile-menu == "fullheight" {
+        height: 100dvh;
+      } @else {
+        height: min(
+          calc((var(--menu-row-count) * #{$navHeight}) + 1px),
+          calc(100dvh - #{$navHeight})
+        );
+      }
+      overflow: clip;
+      border-right: none;
+      border-bottom: solid 1px $lightmodeborder;
+      border-left: none;
+
+      @if config.$menu-animation == "grow" {
+        height: 0;
+        border-bottom-color: transparent;
+        transform: none;
+        transition: height $normal-transition ease;
+      } @else {
+        transform: translateY(-100%);
+        transition: transform $normal-transition ease;
+      }
+
+      .itemsContainer {
+        min-height: 0;
+        height: 100%;
+        padding: 0;
+        overflow-x: clip;
+        @if config.$menu-animation == "grow" {
+          overflow-y: hidden;
+        } @else {
+          overflow-y: auto;
+        }
+        overscroll-behavior: contain;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    }
+
+    .menuContainer.active {
+      @if config.$menu-animation == "grow" {
+        transform: none;
+
+        @if config.$mobile-menu == "fullheight" {
+          height: 100dvh;
+        } @else {
+          height: min(
+            calc((var(--menu-row-count) * #{$navHeight}) + 1px),
+            calc(100dvh - #{$navHeight})
+          );
+        }
+
+        border-bottom-color: $lightmodeborder;
+
+        .itemsContainer {
+          animation: enable-down-menu-scroll 0s $normal-transition forwards;
+        }
+      } @else {
+        transform: translateY(0);
+      }
+
+      overflow-clip-margin: 1px;
+    }
+
+    .menuTop {
+      @if config.$mobile-menu == "default" {
+        display: none;
+      }
+    }
+
+    @if config.$mobile-menu == "fullheight" {
+      .menuContainer {
+        top: 0;
+        z-index: 70;
+
+        .itemsContainer {
+          height: calc(100% - #{$navHeight});
+        }
+      }
+    }
+  }
+
+  @media (prefers-color-scheme: dark) and (max-width: $nav-mobile-breakpoint) {
+    .menuContainer {
+      border-right: none;
+      border-left: none;
+
+      @if config.$menu-animation == "slide" {
+        border-bottom-color: $darkmodeborder;
+      }
+    }
+
+    .menuContainer.active {
+      border-bottom-color: $darkmodeborder;
+    }
+  }
+
+  @media screen and (max-width: calc($nav-menu-width - 1px)) {
+    .menuContainer {
+      right: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    .menuContainer.active {
+      @if config.$menu-animation == "slide" {
+        transform: translateY(0);
+      } @else {
+        transform: none;
+      }
+    }
+  }
+}
+
+@keyframes enable-down-menu-scroll {
+  to {
+    overflow-y: auto;
+  }
+}

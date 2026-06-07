@@ -1,0 +1,233 @@
+@use "./options/navbar-variables.scss" as *;
+@use "./options/navbar-config.scss" as config;
+@use "./options/HB/defaultHB.scss" as defaultHB;
+@use "./options/HB/bigHB.scss" as bigHB;
+@use "./options/HB/left.scss" as hamburgerLeft;
+@use "./options/HB/right.scss" as hamburgerRight;
+@use "./options/menu-container/defaultMC.scss" as defaultMenu;
+@use "./options/menu-container/fullheightMC.scss" as fullheightMenu;
+@use "./options/slide-direction/left.scss" as slideLeft;
+@use "./options/slide-direction/right.scss" as slideRight;
+@use "./options/slide-direction/down.scss" as slideDown;
+
+@if config.$hb-size == "default" {
+  @include defaultHB.styles;
+} @else if config.$hb-size == "big" {
+  @include bigHB.styles;
+} @else {
+  @error 'Unknown navbar hamburger option: #{config.$hb-size}.';
+}
+
+@if config.$hb-location == "left" {
+  @include hamburgerLeft.styles;
+} @else if config.$hb-location == "right" {
+  @include hamburgerRight.styles;
+} @else {
+  @error 'Unknown hamburger button location: #{config.$hb-location}.';
+}
+
+@if config.$mobile-menu == "default" {
+  @include defaultMenu.styles;
+} @else if config.$mobile-menu == "fullheight" {
+  @include fullheightMenu.styles;
+} @else {
+  @error 'Unknown navbar mobile menu option: #{config.$mobile-menu}.';
+}
+
+@if config.$menu-animation != "slide" and config.$menu-animation != "grow" {
+  @error 'Unknown navbar menu animation: #{config.$menu-animation}.';
+}
+
+@if config.$menu-direction == "left" {
+  @include slideLeft.styles;
+} @else if config.$menu-direction == "right" {
+  @include slideRight.styles;
+} @else if config.$menu-direction == "down" {
+  @include slideDown.styles;
+} @else {
+  @error 'Unknown navbar slide direction: #{config.$menu-direction}.';
+}
+
+.items {
+  display: flex;
+}
+
+.itemsContainer {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 50px;
+}
+.items,
+.menuTop {
+  justify-content: space-between;
+
+  height: $navHeight;
+
+  box-sizing: border-box;
+
+  background-color: inherit;
+
+  transition: opacity $fast-transition;
+}
+
+.item {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 20px;
+
+  color: inherit;
+  text-decoration: inherit;
+
+  cursor: pointer;
+
+  font-family: inherit;
+  font-size: inherit;
+  text-transform: inherit;
+
+  transition:
+    transform $fast-transition,
+    color $fast-transition;
+  column-gap: 0.75rem;
+
+  &:hover {
+    color: $primary;
+
+    .arrow {
+      border-color: $primary;
+    }
+  }
+  &:focus-visible {
+    z-index: 10;
+    outline-offset: -2px;
+  }
+}
+.logo {
+  color: $primary;
+  height: $navHeight;
+
+  &:has(img) {
+    padding-right: $nav-logo-horizontal-padding;
+    padding-left: $nav-logo-horizontal-padding;
+  }
+
+  &:focus-visible {
+    outline-offset: -2px;
+  }
+
+  img {
+    display: block;
+    width: auto;
+    height: $nav-logo-height;
+    max-height: calc($navHeight - 1px);
+    object-fit: contain;
+  }
+}
+
+.itemDropDown {
+  --dropdown-row-count: 1;
+
+  background-color: $background-color;
+  height: $navHeight;
+  display: grid;
+  flex-direction: column;
+  align-items: start;
+  overflow: clip;
+  transition: height 0.25s ease;
+  user-select: none;
+  column-gap: 1rem;
+  z-index: 50;
+  &.active {
+    height: calc(var(--dropdown-row-count) * #{$navHeight});
+    overflow-clip-margin: 1px;
+    /* Allow content (including shadow) to extend 10px beyond the padding box */
+  }
+  .item {
+    width: -webkit-fill-available;
+    min-width: max-content;
+    height: $navHeight;
+  }
+  .items {
+    box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
+    flex-direction: column;
+    height: auto;
+    border: 1px solid #ffffff1a;
+    border-top: none;
+  }
+}
+.arrowContainer {
+  display: inline-block;
+  .arrow {
+    border: solid #000;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transition:
+      transform 0.25s,
+      border-color 0.2s;
+  }
+  &.active .arrow:nth-child(1) {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+}
+
+// @media (prefers-color-scheme: dark) {
+//   .navHolder {
+//     background-color: #313131;
+//   }
+// }
+@media (prefers-color-scheme: dark) {
+  .itemDropDown {
+    background-color: #000;
+    .arrow {
+      border-color: #fff;
+    }
+  }
+}
+
+@media screen and (max-width: $nav-mobile-breakpoint) {
+  .itemDropDown {
+    // overflow-clip-margin: 3px;
+    transition: height 0.25s;
+
+    .items {
+      transform: translatex(0);
+      border: none;
+      position: relative;
+      top: 0;
+      right: 0;
+      overflow-y: clip;
+      box-shadow: none;
+      padding: 0;
+
+      .item {
+        padding: 0 40px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: calc($nav-menu-width - 1px)) {
+  .itemDropDown {
+    // overflow-clip-margin: 3px;
+
+    .items {
+      position: relative;
+      top: 0;
+      right: 0;
+      box-shadow: none;
+    }
+  }
+}
+
+@media screen and (max-width: 222px) {
+  .logo {
+    display: none;
+  }
+}

@@ -1,6 +1,6 @@
 import { Inter, Lato, Montserrat, Roboto_Slab } from "next/font/google";
 import "./globals.css";
-import NavBar from "./components/NavBar/page";
+import NavBar from "./components/NavBar/NavBar";
 import Banner from "./components/Banner/page";
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 const lato = Lato({

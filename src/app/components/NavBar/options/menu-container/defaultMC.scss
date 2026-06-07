@@ -1,0 +1,178 @@
+@use "../navbar-variables.scss" as *;
+@use "src/app/styles/abstract/_variables.scss" as *;
+
+@mixin styles {
+  .navHolder {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: -webkit-fill-available;
+    min-height: $navHeight;
+    margin-bottom: 0;
+    background-color: $background-color;
+    color: #000;
+    opacity: 1;
+    font-weight: $nav-font-weight;
+    z-index: 20;
+    // box-shadow: $shadow;
+    text-decoration: none;
+    font-family: $nav-font-family;
+    font-size: $nav-font-size;
+    text-transform: $nav-text-transform;
+    transition:
+      height $normal-transition,
+      opacity $normal-transition;
+    column-gap: 50px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background: $lightmodeborder;
+      z-index: 60;
+      pointer-events: none;
+    }
+  }
+
+  .menuTop {
+    display: none;
+    p {
+      display: inline-flex;
+      align-items: center;
+      margin: 0;
+      padding: 0 20px;
+      user-select: none;
+      font-family: inherit;
+      font-size: inherit;
+    }
+  }
+
+  .menuContainer {
+    background-color: inherit;
+    box-sizing: border-box;
+    z-index: 40;
+    span {
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+
+  .overlay {
+    position: fixed;
+    top: $navHeight;
+    left: 0;
+    backdrop-filter: blur(0);
+    width: 100vw;
+    height: calc(100vh - #{$navHeight});
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 30;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity $normal-transition,
+      background-color $normal-transition,
+      backdrop-filter $normal-transition,
+      visibility 0s linear $normal-transition;
+    &.active {
+      backdrop-filter: blur(4px);
+      background-color: rgba(0, 0, 0, 0.66);
+      opacity: 1;
+      visibility: visible;
+      transition-delay: 0s;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .navHolder {
+      background-color: #000;
+      color: #fff;
+      &::after {
+        background: $darkmodeborder;
+      }
+    }
+  }
+
+  @media screen and (max-width: $nav-mobile-breakpoint) {
+    .menuContainer {
+      border-left: solid 1px $lightmodeborder;
+      position: absolute;
+      right: -$nav-menu-width;
+      width: $nav-menu-width;
+      height: calc(100vh - #{$navHeight});
+      align-content: start;
+      padding: 0;
+      top: $navHeight;
+      transition:
+        transform $normal-transition,
+        opacity 0s;
+
+      .itemsContainer {
+        grid-auto-flow: row;
+        padding: 20px;
+        display: grid;
+        flex-direction: column;
+        height: 100%;
+        align-content: space-between;
+        overflow: auto;
+        box-sizing: border-box;
+      }
+
+      .items {
+        display: grid;
+        grid-auto-flow: row;
+        align-content: start;
+        justify-content: stretch;
+        height: auto;
+        transition:
+          transform $normal-transition,
+          opacity 0s;
+
+        .item {
+          position: relative;
+          height: $navHeight;
+          box-sizing: border-box;
+          pointer-events: none;
+        }
+      }
+    }
+
+    .menuContainer.active {
+      transform: translate(-$nav-menu-width);
+
+      .itemsContainer .items .item {
+        user-select: auto;
+        pointer-events: all;
+      }
+    }
+  }
+
+  @media (prefers-color-scheme: dark) and (max-width: $nav-mobile-breakpoint) {
+    .menuContainer {
+      border-top: none;
+      border-left: solid 1px $darkmodeborder;
+    }
+  }
+
+  @media screen and (max-width: calc($nav-menu-width - 1px)) {
+    .navHolder {
+      justify-content: flex-start;
+    }
+
+    .menuContainer {
+      width: 100%;
+      right: -100%;
+    }
+
+    .menuContainer.active {
+      transform: translate(-100%);
+    }
+  }
+}

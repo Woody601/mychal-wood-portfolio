@@ -1,0 +1,68 @@
+@use "../navbar-variables.scss" as *;
+@use "../navbar-config.scss" as config;
+@use "src/app/styles/abstract/_variables.scss" as *;
+
+@mixin styles {
+  @media screen and (max-width: $nav-mobile-breakpoint) {
+    .menuContainer {
+      right: auto;
+      border-right: solid 1px $lightmodeborder;
+      border-left: none;
+
+      @if config.$menu-animation == "grow" {
+        left: 0;
+        width: 0;
+        overflow: clip;
+        transform: none;
+        transition: width $normal-transition ease;
+      } @else {
+        left: -$nav-menu-width;
+      }
+    }
+
+    .menuContainer.active {
+      @if config.$menu-animation == "grow" {
+        width: $nav-menu-width;
+        transform: none;
+      } @else {
+        transform: translate($nav-menu-width);
+      }
+    }
+
+    @if config.$mobile-menu == "fullheight" {
+      .navHolder:has(.menuContainer.active) > .bars {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+    }
+  }
+
+  @media (prefers-color-scheme: dark) and (max-width: $nav-mobile-breakpoint) {
+    .menuContainer {
+      border-right-color: $darkmodeborder;
+      border-left: none;
+    }
+  }
+
+  @media screen and (max-width: calc($nav-menu-width - 1px)) {
+    .menuContainer {
+      right: auto;
+
+      @if config.$menu-animation == "grow" {
+        left: 0;
+      } @else {
+        left: -100%;
+      }
+    }
+
+    .menuContainer.active {
+      @if config.$menu-animation == "grow" {
+        width: 100%;
+        transform: none;
+      } @else {
+        transform: translate(100%);
+      }
+    }
+  }
+}

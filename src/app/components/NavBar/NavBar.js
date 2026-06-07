@@ -1,9 +1,11 @@
 "use client";
 import { useEffect, useState, useCallback, useRef } from "react";
 import Link from "next/link";
-import styles from "./page.module.css";
+import SubNav from "./NavDropDown/NavDropDown";
+import styles from "./NavBar.module.scss";
+
 // import Cookie from "js-cookie";
-// import Image from "next/image";
+import Image from "next/image";
 // import Icon from "../Icon/page";
 // import ToggleSwitch from "../ToggleSwitch/page";
 // import { useAuthState } from "react-firebase-hooks/auth";
@@ -11,8 +13,14 @@ import styles from "./page.module.css";
 // import SubNav from "./NavDropDown/page";
 
 export default function NavBar() {
+  const mobileBreakpoint = 768;
+  const menuItemsRef = useRef(null);
+  const expandedSubNavRowsRef = useRef(new Map());
   const [screenWidth, setScreenWidth] = useState(0);
+  const [menuRowCount, setMenuRowCount] = useState(0);
+  const [expandedSubNavRows, setExpandedSubNavRows] = useState(0);
   const [isToggled, setToggled] = useState(false);
+  const totalMenuRowCount = menuRowCount + expandedSubNavRows;
 
   // const [isAvatarToggled, setAvatarToggled] = useState(false);
   // const [user, loading, error] = useAuthState(auth);
@@ -24,13 +32,13 @@ export default function NavBar() {
   // const userMenuRef = useRef(null);
   // Close nav if screen size changes to desktop
   useEffect(() => {
-    if (screenWidth >= 784 && isToggled) {
+    if (screenWidth > mobileBreakpoint && isToggled) {
       setToggled(false);
     }
-  }, [screenWidth, isToggled]);
+  }, [screenWidth, mobileBreakpoint, isToggled]);
 
   const toggleNav = () => {
-    if (screenWidth <= 783) {
+    if (screenWidth <= mobileBreakpoint) {
       setToggled(!isToggled);
     }
   };
@@ -40,17 +48,28 @@ export default function NavBar() {
       setToggled(false);
     }
   }, [isToggled]);
-  const handleLogout = async () => {
-    try {
-      await signOut(auth);
-      closeNav();
-    } catch (error) {
-      console.error("Logout Error: ", error);
-    }
-  };
+
+  const updateExpandedSubNavRows = useCallback((id, rowCount) => {
+    expandedSubNavRowsRef.current.set(id, rowCount);
+    setExpandedSubNavRows(
+      Array.from(expandedSubNavRowsRef.current.values()).reduce(
+        (total, rows) => total + rows,
+        0,
+      ),
+    );
+  }, []);
+  // const handleLogout = async () => {
+  //   try {
+  //     await signOut(auth);
+  //     closeNav();
+  //   } catch (error) {
+  //     console.error("Logout Error: ", error);
+  //   }
+  // };
   const updateScreenWidth = () => {
     setScreenWidth(window.innerWidth);
   };
+
   // const toggleAvatar = () => {
   //   setAvatarToggled(!isAvatarToggled);
   // };
@@ -77,7 +96,23 @@ export default function NavBar() {
   //   };
   // }, [screenWidth]);
   useEffect(() => {
-    // Set initial screen width
+    if (!menuItemsRef.current) {
+      return;
+    }
+
+    const updateMenuRowCount = () => {
+      setMenuRowCount(menuItemsRef.current?.children.length ?? 0);
+    };
+
+    updateMenuRowCount();
+
+    const observer = new MutationObserver(updateMenuRowCount);
+    observer.observe(menuItemsRef.current, { childList: true });
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     updateScreenWidth();
     window.addEventListener("resize", updateScreenWidth);
 
@@ -111,13 +146,21 @@ export default function NavBar() {
 
   return (
     <>
-      <nav className={`${styles.navHolder} ${isToggled ? styles.active : ""}`}>
+      <nav className={styles.navHolder}>
         <Link
-          className={`${styles.item} ${styles.title}`}
+          className={`${styles.item} ${styles.logo}`}
           onClick={closeNav}
           href="/"
         >
           Mychal Wood
+          {/* <Image
+            src="/logo.svg"
+            width={1786}
+            height={598}
+            alt="logo"
+            loading="eager"
+            priority
+          /> */}
         </Link>
 
         <div
@@ -128,7 +171,10 @@ export default function NavBar() {
           <span className={styles.bar}></span>
           <span className={styles.bar}></span>
         </div>
-        <div className={styles.menuContainer}>
+        <div
+          className={`${styles.menuContainer} ${isToggled ? styles.active : ""}`}
+          style={{ "--menu-row-count": totalMenuRowCount }}
+        >
           <div className={styles.menuTop}>
             <p>Menu</p>
             <div
@@ -142,7 +188,7 @@ export default function NavBar() {
           </div>
 
           <div className={styles.itemsContainer}>
-            <div className={styles.items}>
+            <div ref={menuItemsRef} className={styles.items}>
               <Link href="/" onClick={closeNav} className={styles.item}>
                 Home
               </Link>
@@ -158,6 +204,23 @@ export default function NavBar() {
               <Link href="/contact" onClick={closeNav} className={styles.item}>
                 Contact
               </Link>
+              {/* <SubNav
+                name="Contact"
+                onExpandedRowsChange={updateExpandedSubNavRows}
+              >
+                <Link href="/" onClick={closeNav} className={styles.item}>
+                  Acrylic
+                </Link>
+                <Link href="/" onClick={closeNav} className={styles.item}>
+                  Leather
+                </Link>
+                <Link href="/" onClick={closeNav} className={styles.item}>
+                  Metal
+                </Link>
+                <Link href="/ " onClick={closeNav} className={styles.item}>
+                  Wood
+                </Link>
+              </SubNav> */}
             </div>
             {/* <div className={styles.items}>
               {user ? (

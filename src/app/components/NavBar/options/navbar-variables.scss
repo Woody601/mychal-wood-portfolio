@@ -1,0 +1,11 @@
+$navHeight: 50px !default;
+$lightmodeborder: rgba(34, 36, 38, 0.15) !default;
+$darkmodeborder: #ffffff1a !default;
+$nav-font-family: Montserrat, Arial, sans-serif !default;
+$nav-font-size: 12pt !default;
+$nav-font-weight: 500 !default;
+$nav-text-transform: uppercase !default;
+$nav-mobile-breakpoint: 768px !default;
+$nav-menu-width: 450px !default;
+$nav-logo-height: calc($navHeight * 40 / 65) !default;
+$nav-logo-horizontal-padding: calc($navHeight * 12.5 / 65) !default;
