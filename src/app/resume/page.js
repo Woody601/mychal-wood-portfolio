@@ -1,6 +1,6 @@
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
-import styles from "./page.module.css";
+import styles from "./page.module.scss";
 export const metadata = {
   title: "Resume",
 };

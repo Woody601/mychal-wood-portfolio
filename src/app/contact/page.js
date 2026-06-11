@@ -1,5 +1,5 @@
 import ContactForm from "../components/ContactForm/page";
-import styles from "./page.module.css";
+import styles from "./page.module.scss";
 
 export const metadata = {
   title: "Contact",

@@ -13,9 +13,10 @@ import Image from "next/image";
 // import SubNav from "./NavDropDown/page";
 
 export default function NavBar() {
-  const mobileBreakpoint = 768;
+  const navRef = useRef(null);
   const menuItemsRef = useRef(null);
   const expandedSubNavRowsRef = useRef(new Map());
+  const [mobileBreakpoint, setMobileBreakpoint] = useState(null);
   const [screenWidth, setScreenWidth] = useState(0);
   const [menuRowCount, setMenuRowCount] = useState(0);
   const [expandedSubNavRows, setExpandedSubNavRows] = useState(0);
@@ -32,13 +33,17 @@ export default function NavBar() {
   // const userMenuRef = useRef(null);
   // Close nav if screen size changes to desktop
   useEffect(() => {
-    if (screenWidth > mobileBreakpoint && isToggled) {
+    if (
+      mobileBreakpoint !== null &&
+      screenWidth > mobileBreakpoint &&
+      isToggled
+    ) {
       setToggled(false);
     }
   }, [screenWidth, mobileBreakpoint, isToggled]);
 
   const toggleNav = () => {
-    if (screenWidth <= mobileBreakpoint) {
+    if (mobileBreakpoint !== null && screenWidth <= mobileBreakpoint) {
       setToggled(!isToggled);
     }
   };
@@ -68,6 +73,16 @@ export default function NavBar() {
   // };
   const updateScreenWidth = () => {
     setScreenWidth(window.innerWidth);
+
+    const breakpoint = Number.parseFloat(
+      getComputedStyle(navRef.current).getPropertyValue(
+        "--nav-mobile-breakpoint",
+      ),
+    );
+
+    if (Number.isFinite(breakpoint)) {
+      setMobileBreakpoint(breakpoint);
+    }
   };
 
   // const toggleAvatar = () => {
@@ -146,7 +161,7 @@ export default function NavBar() {
 
   return (
     <>
-      <nav className={styles.navHolder}>
+      <nav ref={navRef} className={styles.navHolder}>
         <Link
           className={`${styles.item} ${styles.logo}`}
           onClick={closeNav}
@@ -206,6 +221,7 @@ export default function NavBar() {
               </Link>
               {/* <SubNav
                 name="Contact"
+                mobileBreakpoint={mobileBreakpoint}
                 onExpandedRowsChange={updateExpandedSubNavRows}
               >
                 <Link href="/" onClick={closeNav} className={styles.item}>

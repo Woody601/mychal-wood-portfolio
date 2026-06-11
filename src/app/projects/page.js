@@ -2,7 +2,7 @@
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 
-import styles from "./page.module.css";
+import styles from "./page.module.scss";
 import WorkProject from "../components/WorkProject/page";
 export const metadata = {
   title: "Projects",
@@ -36,7 +36,7 @@ export default async function Projects() {
               <WorkProject
                 key={entry.id}
                 src={
-                  "https://firebasestorage.googleapis.com/v0/b/mychal-wood-portfolio.firebasestorage.app/o/" +
+                  "https://firebasestorage.googleapis.com/v0/b/mychal-wood-portfolio.firebasestorage.app/o/projects%2Ficons%2F" +
                   entry.id +
                   ".png?alt=media"
                 }

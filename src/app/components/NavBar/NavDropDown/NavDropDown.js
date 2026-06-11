@@ -9,8 +9,12 @@ import React, {
 } from "react";
 import styles from "../NavBar.module.scss";
 
-export default function SubNav({ children, name, onExpandedRowsChange }) {
-  const mobileBreakpoint = 768;
+export default function SubNav({
+  children,
+  name,
+  mobileBreakpoint,
+  onExpandedRowsChange,
+}) {
   const dropdownId = useId();
   const [screenWidth, setScreenWidth] = useState(0);
   const [isToggled, setToggled] = useState(false);
@@ -41,7 +45,11 @@ export default function SubNav({ children, name, onExpandedRowsChange }) {
   }, [dropdownId, onExpandedRowsChange]);
 
   const dropDownClick = () => {
-    if (screenWidth > mobileBreakpoint && isToggled) {
+    if (
+      mobileBreakpoint !== null &&
+      screenWidth > mobileBreakpoint &&
+      isToggled
+    ) {
       closeDropDown();
     }
   };
@@ -60,6 +68,7 @@ export default function SubNav({ children, name, onExpandedRowsChange }) {
   useEffect(() => {
     function handleClickOutside(event) {
       if (
+        mobileBreakpoint !== null &&
         screenWidth > mobileBreakpoint &&
         isToggled &&
         dropdownRef.current &&

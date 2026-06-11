@@ -1,29 +1,56 @@
 .projectitem {
-  flex-basis: 350px;
+  flex-basis: 382px;
   background-color: #222;
-  padding: 15px;
-  border-radius: 8px;
+
+  border-radius: 20px;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease; /* Smooth transform effect on hover */
+  outline: 0 solid transparent;
+  outline-offset: 8px;
+  transition:
+    outline 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+    outline-offset 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
   overflow: clip;
-  &:hover {
+
+  &:hover,
+  &:focus-visible {
+    outline: 4px solid #0078d4;
+    outline-offset: 4px;
     cursor: pointer;
     user-select: none;
   }
+
+  &:focus-visible {
+    border-radius: 20px;
+  }
+
   img {
     width: 100%;
     border-radius: 8px;
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
-    aspect-ratio: 3.5 / 2;
+    // aspect-ratio: 3.5 / 3.5;
   }
-  h3 {
-    font-size: 1.5rem;
-    margin-top: 15px;
-    color: #0078d4;
+
+  .cardTop {
+    padding: 16px;
   }
-  p {
-    font-size: 1rem;
-    color: #bbb;
+  .cardBottom {
+    padding: 16px;
+    height: 48px;
+    h3 {
+      font-size: 1.25rem;
+      margin: 0;
+      color: #0078d4;
+    }
+    p {
+      font-size: 1rem;
+      color: #bbb;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projectitem {
+    transition: none;
   }
 }

@@ -10,10 +10,17 @@
     textarea {
       padding: 0 22px;
       height: 50px;
-      border: 1px solid #d6d6d6;
+      border: 1px solid #ffffff33;
       border-radius: 4px;
+      background-color: #222;
+      color: #ededed;
+      color-scheme: dark;
       font-family: Inter;
       font-weight: 500;
+
+      &::placeholder {
+        color: #aaa;
+      }
     }
 
     input:focus,
@@ -35,9 +42,9 @@
       height: 50px;
       text-decoration: none;
       font-family: Lato;
-      background-color: #fff;
+      background-color: #222;
       border-radius: 8px;
-      color: #000;
+      color: #ededed;
       text-transform: uppercase;
       display: flex;
       align-items: center;
@@ -102,9 +109,9 @@
 }
 
 .error {
-  color: #c62828;
-  background: #ffebee;
-  border: 1px solid #ef9a9a;
+  color: #ffb4ab;
+  background: #3b1518;
+  border: 1px solid #8c3d43;
   border-radius: 4px;
   padding: 10px 16px;
   margin: 0;

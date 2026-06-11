@@ -1,6 +1,5 @@
-import React from "react";
-import styles from "../css/styles.module.css";
-import { Button } from "../components/Button/page";
+import styles from "./page.module.scss";
+import Image from "next/image";
 export const metadata = {
   title: "About",
 };
@@ -13,7 +12,14 @@ export default function About() {
           I'm Mychal Wood, a Full Stack Web Developer located in the Greater
           Indianapolis area.
         </p>
-        <img src="Mychal_Wood.jpg" className={styles.portrait} />
+
+        <Image
+          src="/Mychal_Wood.jpg"
+          className={styles.portrait}
+          alt="Picture of me!"
+          width={300}
+          height={300}
+        />
       </section>
       <section>
         <h1>Front End Development</h1>

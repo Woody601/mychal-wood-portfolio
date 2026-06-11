@@ -22,7 +22,7 @@ export default function NotFound() {
             fontWeight: 500,
             verticalAlign: "top",
             lineHeight: "49px",
-            borderRight: "1px solid rgba(0,0,0,.3)",
+            borderRight: "1px solid rgba(255,255,255,.3)",
           }}
         >
           404

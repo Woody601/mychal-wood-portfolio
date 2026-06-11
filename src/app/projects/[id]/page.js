@@ -1,6 +1,8 @@
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../../app/firebase";
 import Button from "../../../app/components/Button/page";
+import Image from "next/image";
+
 // Force dynamic rendering (important on canary)
 export const dynamic = "force-dynamic";
 export const metadata = {
@@ -16,6 +18,7 @@ export default async function ProjectDetail({ params }) {
   const docRef = doc(db, "projects", id);
   const docSnap = await getDoc(docRef);
   const project = docSnap.data();
+
   if (!docSnap.exists() || project.visible == false) {
     return <div>Project not found.</div>;
   }
@@ -23,7 +26,17 @@ export default async function ProjectDetail({ params }) {
   return (
     <section>
       {project.title && <h1 className="hero">{project.title}</h1>}
-
+      {/* <Image
+        src={
+          "https://firebasestorage.googleapis.com/v0/b/mychal-wood-portfolio.firebasestorage.app/o/projects%2Fscreenshots%2F" +
+          id +
+          ".png?alt=media"
+        }
+        width={500}
+        height={"auto"}
+        alt={project.title}
+        quality={100}
+      /> */}
       {project.longDescription && (
         <>
           <h2>About this Project</h2>
