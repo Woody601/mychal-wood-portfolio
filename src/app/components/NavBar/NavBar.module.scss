@@ -208,28 +208,11 @@
 
   .navHolder::after {
     z-index: $nav-dropdown-z-index + 1;
-  }
-
-  .itemDropDown.active {
-    z-index: $nav-dropdown-z-index + 2;
-  }
-
-  .itemDropDown.active > .item::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    bottom: -1px;
-    left: 0;
-    height: 2px;
-    background-color: $background-color;
-    z-index: 1;
-    pointer-events: none;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .itemDropDown.active > .item::after {
-      background-color: #000;
-    }
+    mask-image: var(
+      --desktop-dropdown-line-mask,
+      linear-gradient(to right, #000 0, #000 100%)
+    );
+    mask-repeat: no-repeat;
   }
 }
 

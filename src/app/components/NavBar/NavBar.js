@@ -172,7 +172,7 @@ export default function NavBar() {
             src="/logo.svg"
             width={1786}
             height={598}
-            alt="logo"
+            alt="Indy Laser Designs logo"
             loading="eager"
             priority
           /> */}
@@ -220,21 +220,21 @@ export default function NavBar() {
                 Contact
               </Link>
               {/* <SubNav
-                name="Contact"
+                name="Dropdown"
                 mobileBreakpoint={mobileBreakpoint}
                 onExpandedRowsChange={updateExpandedSubNavRows}
               >
                 <Link href="/" onClick={closeNav} className={styles.item}>
-                  Acrylic
+                  Link
                 </Link>
                 <Link href="/" onClick={closeNav} className={styles.item}>
-                  Leather
+                  Link
                 </Link>
                 <Link href="/" onClick={closeNav} className={styles.item}>
-                  Metal
+                  Link
                 </Link>
                 <Link href="/ " onClick={closeNav} className={styles.item}>
-                  Wood
+                  Link
                 </Link>
               </SubNav> */}
             </div>
