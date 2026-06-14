@@ -1,5 +1,5 @@
 @use "../navbar-variables.scss" as *;
-@use "src/app/styles/abstract/_variables.scss" as *;
+@use "../../../../styles/abstract/variables.scss" as *;
 
 @mixin styles {
   .navHolder {
@@ -17,7 +17,7 @@
     color: #000;
     opacity: 1;
     font-weight: $nav-font-weight;
-    z-index: 20;
+    z-index: $nav-z-index;
     // box-shadow: $shadow;
     text-decoration: none;
     font-family: $nav-font-family;
@@ -36,7 +36,7 @@
       width: 100%;
       height: 1px;
       background: $lightmodeborder;
-      z-index: 20;
+      z-index: $nav-underline-z-index;
       pointer-events: none;
     }
   }
@@ -57,7 +57,7 @@
   .menuContainer {
     background-color: inherit;
     box-sizing: border-box;
-    z-index: 40;
+    z-index: $nav-menu-z-index;
     span {
       &:hover {
         color: #000;
@@ -73,20 +73,24 @@
     width: 100vw;
     height: calc(100vh - #{$navHeight});
     background-color: rgba(0, 0, 0, 0);
-    z-index: 30;
+    z-index: $nav-overlay-z-index;
     opacity: 0;
     visibility: hidden;
     transition:
-      opacity $normal-transition,
-      background-color $normal-transition,
-      backdrop-filter $normal-transition,
+      opacity $normal-transition $nav-close-transition-timing,
+      background-color $normal-transition $nav-close-transition-timing,
+      backdrop-filter $normal-transition $nav-close-transition-timing,
       visibility 0s linear $normal-transition;
     &.active {
       backdrop-filter: blur(4px);
       background-color: rgba(0, 0, 0, 0.66);
       opacity: 1;
       visibility: visible;
-      transition-delay: 0s;
+      transition:
+        opacity $normal-transition $nav-open-transition-timing,
+        background-color $normal-transition $nav-open-transition-timing,
+        backdrop-filter $normal-transition $nav-open-transition-timing,
+        visibility 0s;
     }
   }
 
@@ -111,7 +115,7 @@
       padding: 0;
       top: $navHeight;
       transition:
-        transform $normal-transition,
+        transform $normal-transition $nav-open-transition-timing,
         opacity 0s;
 
       .itemsContainer {
@@ -146,6 +150,7 @@
 
     .menuContainer.active {
       transform: translate(-$nav-menu-width);
+      transition-timing-function: $nav-open-transition-timing;
 
       .itemsContainer .items .item {
         user-select: auto;
@@ -173,6 +178,7 @@
 
     .menuContainer.active {
       transform: translate(-100%);
+      transition-timing-function: $nav-open-transition-timing;
     }
   }
 }

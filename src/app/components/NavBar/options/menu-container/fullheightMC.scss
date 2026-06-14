@@ -1,5 +1,5 @@
 @use "../navbar-variables.scss" as *;
-@use "src/app/styles/abstract/_variables.scss" as *;
+@use "../../../../styles/abstract/variables.scss" as *;
 
 @mixin styles {
   .navHolder {
@@ -23,7 +23,7 @@
     opacity: 1;
     font-weight: $nav-font-weight;
 
-    z-index: 20;
+    z-index: $nav-z-index;
 
     // box-shadow: $shadow;
 
@@ -46,7 +46,7 @@
       width: 100%;
       height: 1px;
       background: $lightmodeborder;
-      z-index: 30;
+      z-index: $nav-underline-z-index;
       pointer-events: none;
     }
   }
@@ -71,11 +71,11 @@
     background-color: inherit;
     box-sizing: border-box;
 
-    z-index: 40;
+    z-index: $nav-menu-z-index;
 
     span {
       &:hover {
-        color: #000;
+        color: white;
       }
     }
   }
@@ -90,15 +90,15 @@
 
     background-color: rgba(0, 0, 0, 0);
 
-    z-index: 30;
+    z-index: $nav-overlay-z-index;
 
     opacity: 0;
     visibility: hidden;
 
     transition:
-      opacity $normal-transition,
-      background-color $normal-transition,
-      backdrop-filter $normal-transition,
+      opacity $normal-transition $nav-overlay-close-timing,
+      background-color $normal-transition $nav-overlay-close-timing,
+      backdrop-filter $normal-transition $nav-overlay-close-timing,
       visibility 0s linear $normal-transition;
 
     &.active {
@@ -106,7 +106,11 @@
       background-color: rgba(0, 0, 0, 0.66);
       opacity: 1;
       visibility: visible;
-      transition-delay: 0s;
+      transition:
+        opacity $normal-transition $nav-overlay-open-timing,
+        background-color $normal-transition $nav-overlay-open-timing,
+        backdrop-filter $normal-transition $nav-overlay-open-timing,
+        visibility 0s;
     }
   }
 
@@ -129,9 +133,9 @@
       height: 100vh;
       align-content: start;
       padding: 0;
-      z-index: 40;
+      z-index: $nav-menu-z-index;
       transition:
-        transform $normal-transition,
+        transform $normal-transition $nav-transition-timing,
         opacity 0s;
 
       .itemsContainer {
@@ -190,9 +194,9 @@
   }
 
   @media screen and (max-width: calc($nav-menu-width - 1px)) {
-    // .navHolder {
-    //   justify-content: flex-start;
-    // }
+    .navHolder {
+      justify-content: flex-start;
+    }
 
     .menuContainer {
       width: 100%;

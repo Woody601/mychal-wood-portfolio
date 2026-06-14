@@ -1,9 +1,31 @@
 @use "../navbar-variables.scss" as *;
 @use "../navbar-config.scss" as config;
-@use "src/app/styles/abstract/_variables.scss" as *;
+@use "../../../../styles/abstract/variables.scss" as *;
 
 @mixin styles {
   @media screen and (max-width: $nav-mobile-breakpoint) {
+    @if config.$mobile-menu == "default" and config.$menu-animation == "slide" {
+      .navHolder {
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: $navHeight;
+          background-color: inherit;
+          z-index: $nav-menu-z-index + 1;
+          pointer-events: none;
+        }
+
+        &::after,
+        > .logo,
+        > .bars {
+          z-index: $nav-menu-z-index + 2;
+        }
+      }
+    }
+
     .menuContainer {
       --menu-row-count: 0;
 
@@ -28,10 +50,12 @@
         height: 0;
         border-bottom-color: transparent;
         transform: none;
-        transition: height $normal-transition ease;
+        transition: height $normal-transition $nav-transition-timing;
       } @else {
         transform: translateY(-100%);
-        transition: transform $normal-transition ease;
+        transition:
+          transform $normal-transition $nav-transition-timing,
+          height 0.25s ease;
       }
 
       .itemsContainer {
@@ -87,7 +111,7 @@
     @if config.$mobile-menu == "fullheight" {
       .menuContainer {
         top: 0;
-        z-index: 70;
+        z-index: $nav-menu-z-index;
 
         .itemsContainer {
           height: calc(100% - #{$navHeight});

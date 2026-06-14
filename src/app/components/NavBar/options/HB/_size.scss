@@ -1,0 +1,81 @@
+@use "../navbar-variables.scss" as *;
+@use "../../../../styles/abstract/variables.scss" as *;
+
+@mixin styles($gap, $bar-width, $bar-height, $active-offset) {
+  .bars {
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: $gap;
+
+    width: $navHeight;
+    height: $navHeight;
+    padding: 0;
+
+    float: right;
+
+    cursor: pointer;
+
+    .bar {
+      display: block;
+
+      width: $bar-width;
+      height: $bar-height;
+
+      margin: 0;
+
+      border-radius: 5px;
+
+      background-color: #000;
+
+      transition:
+        background-color $fast-transition,
+        opacity $normal-transition,
+        transform $normal-transition;
+    }
+
+    &:hover {
+      .bar {
+        background-color: $primary;
+      }
+    }
+
+    &.active {
+      .bar:nth-child(1) {
+        transform: translateY($active-offset) rotate(-45deg);
+      }
+
+      .bar:nth-child(2) {
+        opacity: 0;
+      }
+
+      .bar:nth-child(3) {
+        transform: translateY(-$active-offset) rotate(45deg);
+      }
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .bars {
+      .bar {
+        background-color: #fff;
+      }
+    }
+  }
+
+  @media screen and (max-width: $nav-mobile-breakpoint) {
+    .bars {
+      position: absolute;
+      right: 0;
+
+      opacity: 1;
+      visibility: visible;
+      display: flex;
+
+      transition: $normal-transition;
+    }
+  }
+}

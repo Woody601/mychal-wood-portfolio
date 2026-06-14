@@ -1,0 +1,37 @@
+@use "../navbar-variables.scss" as *;
+
+@mixin position($side, $opposite, $side-first) {
+  @if $side-first {
+    #{$side}: 0;
+    #{$opposite}: auto;
+  } @else {
+    #{$opposite}: auto;
+    #{$side}: 0;
+  }
+}
+
+@mixin styles(
+  $side,
+  $opposite,
+  $justify-content,
+  $reverse-menu: false,
+  $side-first: false
+) {
+  @media screen and (max-width: $nav-mobile-breakpoint) {
+    .bars {
+      @include position($side, $opposite, $side-first);
+    }
+
+    .menuTop {
+      justify-content: $justify-content;
+
+      @if $reverse-menu {
+        flex-direction: row-reverse;
+      }
+
+      .bars {
+        @include position($side, $opposite, $side-first);
+      }
+    }
+  }
+}

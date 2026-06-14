@@ -1,19 +1,5 @@
-@use "../navbar-variables.scss" as *;
+@use "./location";
 
 @mixin styles {
-  @media screen and (max-width: $nav-mobile-breakpoint) {
-    .bars {
-      right: auto;
-      left: 0;
-    }
-
-    .menuTop {
-      justify-content: flex-end;
-      flex-direction: row-reverse;
-      .bars {
-        right: auto;
-        left: 0;
-      }
-    }
-  }
+  @include location.styles(left, right, flex-end, true);
 }
