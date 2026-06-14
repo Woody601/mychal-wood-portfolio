@@ -36,7 +36,7 @@ export default async function Projects() {
               <WorkProject
                 key={entry.id}
                 src={
-                  "https://firebasestorage.googleapis.com/v0/b/mychal-wood-portfolio.firebasestorage.app/o/projects%2Ficons%2F" +
+                  "https://firebasestorage.googleapis.com/v0/b/mychal-wood-portfolio.firebasestorage.app/o/" +
                   entry.id +
                   ".png?alt=media"
                 }

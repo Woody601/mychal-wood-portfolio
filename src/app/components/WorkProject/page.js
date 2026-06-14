@@ -8,7 +8,7 @@ export default function WorkProject(props) {
   return (
     <Link href={`/projects/${project}`} className={styles.projectitem}>
       <div className={styles.cardTop}>
-        <Image src={src} width={350} height={350} alt={title} quality={100} />
+        <Image src={src} width={350} height={200} alt={title} quality={100} />
       </div>
       <div className={styles.cardBottom}>
         <h3>{title}</h3>
